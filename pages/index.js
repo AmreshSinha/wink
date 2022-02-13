@@ -216,7 +216,7 @@ export default function Home() {
         <div className={styles.blur} ref={boxRef1}></div>
         <div className={styles.blur} ref={boxRef2}></div>
         <div className={styles.blur} ref={boxRef3}></div>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className={styles.arrowRightWithDottedRectangleBackground}>
           <img
             src="./dottedPattern.png"
