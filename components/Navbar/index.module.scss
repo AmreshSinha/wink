@@ -1,177 +1,293 @@
 .navbarWrapper {
-    position:absolute;
-    z-index: 5;
-    display: flex;
-    width: 100%;
-    padding: 40px;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-  }
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  width: 100%;
+  padding: 40px;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
 
 @media only screen and (max-width: 500px) {
   .navbarWrapper {
     padding: 20px;
   }
 }
-  
-  .aLetterWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // width: 100px;
-    // height: 50px;
-    // max-width: 100px;
-    overflow: hidden;
-    width: fit-content;
-    z-index: 2;
-  }
-  
-  .aCircleLeft {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .aRectRight {
-    margin-left: -15px;
-    width: 20px;
-    height: 50px;
-  }
-  
-  .aSquare {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    justify-content: flex-end;
-    margin-left: -5px
-  }
-  
-  .aSquareItem {
-    width: 10px;
-    height: 10px;
-  }
-  
+
+.aLetterWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // width: 100px;
+  // height: 50px;
+  // max-width: 100px;
+  overflow: hidden;
+  width: fit-content;
+  z-index: 2;
+}
+
+.aCircleLeft {
+  width: 50px;
+  height: 50px;
+}
+
+.aRectRight {
+  margin-left: -15px;
+  width: 20px;
+  height: 50px;
+}
+
+.aSquare {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  justify-content: flex-end;
+  margin-left: -5px;
+}
+
+.aSquareItem {
+  width: 10px;
+  height: 10px;
+}
+
+.navbarList {
+  position: absolute;
+  z-index: 4;
+  width: 25vw;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  margin-top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(244, 244, 244, 1);
+  overflow: hidden;
+}
+
+.navbarList div {
+  overflow: hidden;
+}
+
+.navbarList li {
+  list-style: none;
+  overflow: hidden;
+}
+
+.navbarList a {
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-size: 2rem;
+}
+
+@media only screen and (max-width: 1300px) {
   .navbarList {
-    position: absolute;
-    z-index: 4;
-    width: 25vw;
-    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
-    height: 100vh;
-    margin-top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    background: rgba(244, 244, 244, 1);
-    overflow: hidden;
+    width: 40vw;
   }
-  
-  .navbarList div {
-    overflow: hidden;
-  }
-  
-  .navbarList li {
-    list-style: none;
-    overflow: hidden;
-  }
-  
-  .navbarList a {
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-size: 2rem;
-  }
-  
-  @media only screen and (max-width: 1300px) {
-    .navbarList {
-      width: 40vw;
-    }
-  }
-  
-  @media only screen and (max-width: 900px) {
-    .navbarList {
-      width: 50vw;
-    }
-  }
-  
-  @media only screen and (max-width: 700px) {
-    .navbarList {
-      width: 100vw;
-    }
-    .navbarList a {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .socialIcons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .socialIcons a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-  }
-  
-  .githubCircle {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .linkedinCircle {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .twitterCircle {
-    width: 24.74px;
-    height: 20px;
-  }
+}
 
-  .kofiCircle {
-    width: 32px;
-    height: 32px;
+@media only screen and (max-width: 900px) {
+  .navbarList {
+    width: 50vw;
   }
-  
-  .hamburger {
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // background: rgba(0, 0, 0, 0.08);
-    padding: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  
-  .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: #000/*rgb(226, 226, 226)*/;
-    margin: 2px;
-  }
-  
-  .backdropShade {
-    // display: none;
-    position: absolute;
-    bottom: 0;
-    z-index: 4;
+}
+
+@media only screen and (max-width: 700px) {
+  .navbarList {
     width: 100vw;
-    height: 100vh;
-    transform: translateX(-100vw);
-    background: rgba(0, 0, 0, 0.8);
   }
+  .navbarList a {
+    font-size: 1.5rem;
+  }
+}
 
-  
+.socialIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.socialIcons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+.githubCircle {
+  width: 32px;
+  height: 32px;
+  animation-name: outGithubCircle;
+  animation-duration: 0.5s;
+}
+
+.githubCircle:hover {
+  animation-name: inGithubCircle;
+  animation-duration: 0.5s;
+  // animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes inGithubCircle {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-15deg);
+  }
+}
+
+@keyframes outGithubCircle {
+  from {
+    transform: rotateZ(-15deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+.linkedinCircle {
+  width: 20px;
+  height: 20px;
+  animation-name: outLinkedinCircle;
+  animation-duration: 0.5s;
+}
+
+.linkedinCircle:hover {
+  animation-name: inLinkedinCircle;
+  animation-duration: 0.5s;
+  // animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes inLinkedinCircle {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-15deg);
+  }
+}
+
+@keyframes outLinkedinCircle {
+  from {
+    transform: rotateZ(-15deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+.twitterCircle {
+  width: 24.74px;
+  height: 20px;
+  animation-name: outTwitterCircle;
+  animation-duration: 0.5s;
+}
+
+.twitterCircle:hover {
+  animation-name: inTwitterCircle;
+  animation-duration: 0.5s;
+  // animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes inTwitterCircle {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-15deg);
+  }
+}
+
+@keyframes outTwitterCircle {
+  from {
+    transform: rotateZ(-15deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+.kofiCircle {
+  width: 32px;
+  height: 32px;
+  animation-name: outKofiCircle;
+  animation-duration: 0.5s;
+}
+
+.kofiCircle:hover {
+  animation-name: inKofiCircle;
+  animation-duration: 0.5s;
+  // animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes inKofiCircle {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(-15deg);
+  }
+}
+
+@keyframes outKofiCircle {
+  from {
+    transform: rotateZ(-15deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+.hamburger {
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // background: rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000 /*rgb(226, 226, 226)*/;
+  margin: 2px;
+}
+
+.backdropShade {
+  // display: none;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(-100vw);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.leftToRight {
+  background: linear-gradient(currentColor 0 0) 0 100% / var(--d, 0) 3px
+    no-repeat;
+  transition: 0.5s;
+}
+
+.leftToRight:hover {
+  --d: 100%;
+}
