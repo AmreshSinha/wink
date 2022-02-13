@@ -209,7 +209,6 @@ export default function Home() {
         <title>AmreshSinha 👋</title>
         <meta name="description" content="Passionate Developer!" />
         <link rel="icon" href="/favicon.ico" />
-        <link href="https://use.typekit.net/skn8ash.css" rel="stylesheet" />
       </Head>
 
       <section className={styles.wrapper} ref={firstSection}>
