@@ -237,27 +237,29 @@ export default function Navbar() {
     <>
       <div className={styles.backdropShade} ref={backdropShade}></div>
       <div className={styles.navbarWrapper}>
-        <a className={styles.aLetterWrapper} href="./">
-          <img
-            src="./aCircleLeft.svg"
-            className={styles.aCircleLeft}
-            alt="aCircle"
-            ref={aCircleLeft}
-          />
-          <img
-            src="./aRectRight.svg"
-            className={styles.aRectRight}
-            alt="aRect"
-            ref={aRectRight}
-          />
-          <div className={styles.aSquare} ref={aSquare}>
+        <Link href="/">
+          <a className={styles.aLetterWrapper}>
             <img
-              src="./aSquare.svg"
-              className={styles.aSquareItem}
-              alt="aSquare"
+              src="./aCircleLeft.svg"
+              className={styles.aCircleLeft}
+              alt="aCircle"
+              ref={aCircleLeft}
             />
-          </div>
-        </a>
+            <img
+              src="./aRectRight.svg"
+              className={styles.aRectRight}
+              alt="aRect"
+              ref={aRectRight}
+            />
+            <div className={styles.aSquare} ref={aSquare}>
+              <img
+                src="./aSquare.svg"
+                className={styles.aSquareItem}
+                alt="aSquare"
+              />
+            </div>
+          </a>
+        </Link>
         <div className={styles.hamburger} ref={hamburger}>
           <div className={styles.hamburgerList1} ref={hamburgerStick1}></div>
           <div className={styles.hamburgerList2} ref={hamburgerStick2}></div>
@@ -301,7 +303,10 @@ export default function Navbar() {
               alt="githubCircle"
             />
           </a>
-          <a href="https://www.linkedin.com/in/aps-amresh/" ref={linkedinCircle}>
+          <a
+            href="https://www.linkedin.com/in/aps-amresh/"
+            ref={linkedinCircle}
+          >
             <img
               src="./linkedinCircle.svg"
               className={styles.linkedinCircle}
