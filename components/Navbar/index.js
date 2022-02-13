@@ -2,6 +2,7 @@ import styles from "./index.module.scss";
 import { gsap } from "gsap/dist/gsap";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Navbar() {
   const aCircleLeft = useRef();
@@ -249,6 +250,9 @@ export default function Navbar() {
   }, []);
   return (
     <>
+      <Head>
+        <link href="https://use.typekit.net/skn8ash.css" rel="stylesheet" />
+      </Head>
       <div className={styles.backdropShade} ref={backdropShade}></div>
       <div className={styles.navbarWrapper}>
         <Link href="/">
