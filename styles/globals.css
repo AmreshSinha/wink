@@ -40,6 +40,7 @@ h1 {
 
 body {
   font-family: Termina, sans-serif;
+  overflow-x: hidden;
 }
 
 section {

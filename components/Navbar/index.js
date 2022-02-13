@@ -1,6 +1,7 @@
 import styles from "./index.module.scss";
 import { gsap } from "gsap/dist/gsap";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const aCircleLeft = useRef();
@@ -266,33 +267,41 @@ export default function Navbar() {
       <ul className={styles.navbarList} ref={navbarList}>
         <li>
           <div ref={skills}>
-            <a href="#">Skills</a>
+            <Link href="/skills">
+              <a>Skills</a>
+            </Link>
           </div>
         </li>
         <li>
           <div ref={showcases}>
-            <a href="#">Showcases</a>
+            <Link href="/showcases">
+              <a>Showcases</a>
+            </Link>
           </div>
         </li>
         <li>
           <div ref={aboutMe}>
-            <a href="#">About me</a>
+            <Link href="/about">
+              <a>About me</a>
+            </Link>
           </div>
         </li>
         <li>
           <div ref={contact}>
-            <a href="#">Contact</a>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
           </div>
         </li>
         <li className={styles.socialIcons}>
-          <a href="#" ref={githubCircle}>
+          <a href="https://github.com/AmreshSinha" ref={githubCircle}>
             <img
               src="./githubCircle.svg"
               className={styles.githubCircle}
               alt="githubCircle"
             />
           </a>
-          <a href="#" ref={linkedinCircle}>
+          <a href="https://www.linkedin.com/in/aps-amresh/" ref={linkedinCircle}>
             <img
               src="./linkedinCircle.svg"
               className={styles.linkedinCircle}
