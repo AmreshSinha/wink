@@ -20,6 +20,7 @@ export default function Navbar() {
   const githubCircle = useRef();
   const linkedinCircle = useRef();
   const twitterCircle = useRef();
+  const kofiCircle = useRef();
 
   useEffect(() => {
     // Repeating Logo Animation
@@ -164,6 +165,18 @@ export default function Navbar() {
         },
       })
       .reversed(true);
+    kofiCircle.current.anim = gsap
+      .from(kofiCircle.current, {
+        duration: 1,
+        y: 400,
+        ease: "power4.out",
+        rotateZ: 180,
+        skewY: 7,
+        stagger: {
+          amount: 0.3,
+        },
+      })
+      .reversed(true);
     backdropShade.current.anim = gsap
       .to(backdropShade.current, {
         duration: 1,
@@ -213,6 +226,7 @@ export default function Navbar() {
       aboutMe.current.anim.reversed(!aboutMe.current.anim.reversed());
       contact.current.anim.reversed(!contact.current.anim.reversed());
       githubCircle.current.anim.reversed(!githubCircle.current.anim.reversed());
+      kofiCircle.current.anim.reversed(!kofiCircle.current.anim.reversed());
       linkedinCircle.current.anim.reversed(
         !linkedinCircle.current.anim.reversed()
       );
@@ -317,6 +331,13 @@ export default function Navbar() {
             <img
               src="./twitterCircle.svg"
               className={styles.twitterCircle}
+              alt="twitterCircle"
+            />
+          </a>
+          <a href="https://ko-fi.com/amresh" ref={kofiCircle}>
+            <img
+              src="./ko-fi.svg"
+              className={styles.kofiCircle}
               alt="twitterCircle"
             />
           </a>
