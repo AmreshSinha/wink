@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 export default function TrailingPointerCircle() {
   const cursor = useRef();
   useEffect(() => {
+    console.log(cursor.current);
     let mouse = { x: 300, y: 300 };
     let pos = { x: 0, y: 0 };
     const speed = 0.1; // between 0 and 1

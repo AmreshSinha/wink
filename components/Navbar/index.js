@@ -322,6 +322,7 @@ export default function Navbar() {
                 : "https://github.com/AmreshSinha"
             }
             target="_blank"
+            rel="noreferrer"
             ref={githubCircle}
           >
             {/* <img
@@ -350,6 +351,7 @@ export default function Navbar() {
                 : "#"
             }
             target="_blank"
+            rel="noreferrer"
             ref={linkedinCircle}
           >
             {/* <img
@@ -392,6 +394,7 @@ export default function Navbar() {
                 : "#"
             }
             target="_blank"
+            rel="noreferrer"
             ref={twitterCircle}
           >
             <img
@@ -400,7 +403,16 @@ export default function Navbar() {
               alt="twitterCircle"
             />
           </a>
-          <a href={YAMLData.main[4].kofiLink ? YAMLData.main[4].kofiLink : "https://ko-fi.com/amresh"} target="_blank" ref={kofiCircle}>
+          <a
+            href={
+              YAMLData.main[4].kofiLink
+                ? YAMLData.main[4].kofiLink
+                : "https://ko-fi.com/amresh"
+            }
+            target="_blank"
+            rel="noreferrer"
+            ref={kofiCircle}
+          >
             <img
               src="./ko-fi.svg"
               className={styles.kofiCircle}
