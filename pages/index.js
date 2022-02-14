@@ -388,34 +388,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* <div ref={secondSection} className={styles.secondSection}>
-        <div className={styles.arrowLeftFlex}>
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-          <img src="./Arrow-left.svg" alt="arrow-right" className={styles.arrowLeftFlexItems} />
-        </div>
-        <h1>Yo!</h1>
-        <div className={styles.arrowRightFlex}>
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-          <img src="./Arrow-right.svg" alt="arrow-right" className={styles.arrowRightFlexItems} />
-        </div>
-      </div> */}
     </>
   );
 }
