@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import TrailingPointerCircle from "../components/TrailingPointerCircle";
+import YAMLData from "../content.yaml";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -207,8 +208,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>AmreshSinha 👋</title>
-        <meta name="description" content="Passionate Developer!" />
+        <title>{YAMLData.title ? (YAMLData.title) : ("AmreshSinha 👋")}</title>
+        <meta name="description" content="Loves playing with Tech!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -298,7 +299,7 @@ export default function Home() {
           <h1 className={styles.centerRow} ref={headingH1}>
             <span ref={heyIAm}>Hey, I am&nbsp;</span>
             <u className={styles.waveUnderline} ref={myName}>
-              Amresh
+              {YAMLData.main[0].firstName ? (YAMLData.main[0].firstName) : ("Amresh")}
             </u>
             <span className={styles.wave}>👋</span>
           </h1>

@@ -3,6 +3,7 @@ import { gsap } from "gsap/dist/gsap";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import YAMLData from "../../content.yaml";
 
 export default function Navbar() {
   const aCircleLeft = useRef();
@@ -314,7 +315,15 @@ export default function Navbar() {
           </div>
         </li>
         <li className={styles.socialIcons}>
-          <a href="https://github.com/AmreshSinha" ref={githubCircle}>
+          <a
+            href={
+              YAMLData.main[1].githubProfileLink
+                ? YAMLData.main[1].githubProfileLink
+                : "https://github.com/AmreshSinha"
+            }
+            target="_blank"
+            ref={githubCircle}
+          >
             {/* <img
               src="./githubCircle.svg"
               className={styles.githubCircle}
@@ -335,7 +344,12 @@ export default function Navbar() {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/aps-amresh/"
+            href={
+              YAMLData.main[2].linkedinProfileLink
+                ? YAMLData.main[2].linkedinProfileLink
+                : "#"
+            }
+            target="_blank"
             ref={linkedinCircle}
           >
             {/* <img
@@ -371,14 +385,22 @@ export default function Navbar() {
               </g>
             </svg>
           </a>
-          <a href="#" ref={twitterCircle}>
+          <a
+            href={
+              YAMLData.main[3].twitterProfileLink
+                ? YAMLData.main[3].twitterProfileLink
+                : "#"
+            }
+            target="_blank"
+            ref={twitterCircle}
+          >
             <img
               src="./twitterCircle.svg"
               className={styles.twitterCircle}
               alt="twitterCircle"
             />
           </a>
-          <a href="https://ko-fi.com/amresh" ref={kofiCircle}>
+          <a href={YAMLData.main[4].kofiLink ? YAMLData.main[4].kofiLink : "https://ko-fi.com/amresh"} target="_blank" ref={kofiCircle}>
             <img
               src="./ko-fi.svg"
               className={styles.kofiCircle}
