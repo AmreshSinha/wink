@@ -214,10 +214,10 @@ export default function Home() {
       </Head>
 
       <section className={styles.wrapper} ref={firstSection}>
-        <TrailingPointerCircle />
         <div className={styles.blur} ref={boxRef1}></div>
         <div className={styles.blur} ref={boxRef2}></div>
         <div className={styles.blur} ref={boxRef3}></div>
+        <TrailingPointerCircle />
         <Navbar />
         <div className={styles.arrowRightWithDottedRectangleBackground}>
           <img
