@@ -6,6 +6,7 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
+import TrailingPointerCircle from "../components/TrailingPointerCircle";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -212,6 +213,7 @@ export default function Home() {
       </Head>
 
       <section className={styles.wrapper} ref={firstSection}>
+        <TrailingPointerCircle />
         <div className={styles.blur} ref={boxRef1}></div>
         <div className={styles.blur} ref={boxRef2}></div>
         <div className={styles.blur} ref={boxRef3}></div>
