@@ -273,7 +273,7 @@ export default function Navbar() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="50" cy="50" r="40" stroke="black" stroke-width="20" />
+              <circle cx="50" cy="50" r="40" stroke="black" strokeWidth="20" />
             </svg>
             {/* <img
               src="./aRectRight.svg"
@@ -296,7 +296,7 @@ export default function Navbar() {
                 x2="10"
                 y2="100"
                 stroke="black"
-                stroke-width="20"
+                strokeWidth="20"
               />
             </svg>
             <div className={styles.aSquare} ref={aSquare}>
