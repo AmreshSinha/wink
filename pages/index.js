@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
