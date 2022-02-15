@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="white"/>
+<rect x="10" y="10" width="492" height="492" rx="15" stroke="black" stroke-width="20"/>
+<circle cx="75" cy="75" r="17.5" stroke="black" stroke-width="15"/>
+<circle cx="427" cy="427" r="17.5" stroke="black" stroke-width="15"/>
+<circle cx="75" cy="427" r="17.5" stroke="black" stroke-width="15"/>
+<circle cx="427" cy="75" r="17.5" stroke="black" stroke-width="15"/>
+<mask id="path-6-inside-1_22_98" fill="white">
+<path d="M300 360C300 365.523 295.523 370 290 370L185 370C179.477 370 175 365.523 175 360L175 245L300 245L300 360Z"/>
+</mask>
+<path d="M300 360C300 365.523 295.523 370 290 370L185 370C179.477 370 175 365.523 175 360L175 245L300 245L300 360Z" stroke="black" stroke-width="30" mask="url(#path-6-inside-1_22_98)"/>
+<path d="M182.5 142.5V252.5" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<path d="M292.5 150L300 150L300 135L292.5 135L292.5 150ZM182.5 135C178.358 135 175 138.358 175 142.5C175 146.642 178.358 150 182.5 150L182.5 135ZM292.5 135L182.5 135L182.5 150L292.5 150L292.5 135Z" fill="black"/>
+<path d="M219.443 195.5L187.662 253.5L295.557 253.5L327.338 195.5L219.443 195.5Z" stroke="black" stroke-width="15"/>
+<line x1="7.5" y1="-7.5" x2="69.9209" y2="-7.5" transform="matrix(-0.581238 -0.813734 -0.813734 0.581238 217 205)" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<line x1="7.5" y1="-7.5" x2="58.1049" y2="-7.5" transform="matrix(-0.609711 -0.792624 -0.792624 0.609711 328 197)" stroke="black" stroke-width="15" stroke-linecap="square"/>
+</svg>

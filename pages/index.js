@@ -175,7 +175,7 @@ export default function Home() {
       duration: 2,
       y: 250,
       ease: "power4.out",
-      delay: 1,
+      delay: 0.8,
       skewY: 7,
       stagger: {
         amount: 0.3,
@@ -195,7 +195,7 @@ export default function Home() {
       duration: 1.8,
       y: 250,
       ease: "power4.out",
-      delay: 1,
+      delay: 0.8,
       skewY: 7,
       stagger: {
         amount: 0.3,

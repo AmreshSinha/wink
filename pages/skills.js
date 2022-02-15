@@ -1,20 +1,38 @@
 import Head from "next/head";
 import styles from "../styles/Skills.module.scss";
-import Navbar from "../components/Navbar";
+import WhiteNavbar from "../components/Navbar/index.white";
 import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import TrailingPointerCircle from "../components/TrailingPointerCircle";
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Skills() {
-  const coolText = useRef();
+  const sectionBG = useRef();
+  const switchOFF = useRef();
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.to(coolText.current, {
-      duration: 0.4,
-      text: "s",
+    tl.from(switchOFF.current, {
+      duration: 0.8,
+      width: 0,
+      height: 0,
+      ease: "power4.out(1.7)",
     });
+    tl.to(switchOFF.current, {
+      duration: 0.4,
+      attr: { src: "/switchON.svg" },
+    })
+    tl.to(switchOFF.current, {
+      duration: 0.4,
+      width: 0,
+      height: 0,
+      ease: "power4.out(1.7)",
+    })
+    tl.to(sectionBG.current, {
+      duration: 0.4,
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "#000",
+      ease: "power4.out(1.7)",
+    })
   }, []);
   return (
     <>
@@ -24,12 +42,17 @@ export default function Skills() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section>
+      <section ref={sectionBG}>
         <TrailingPointerCircle />
-        <Navbar />
-        {/* <div className={styles.animTextWrapper}>
-          <h1 ref={coolText}>skills</h1>
-        </div> */}
+        <WhiteNavbar />
+        <div className={styles.switchWrapper}>
+          <img
+            src="/switchOFF.svg"
+            alt="switch"
+            className={styles.switchSize}
+            ref={switchOFF}
+          />
+        </div>
       </section>
     </>
   );

@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" fill="white"/>
+<rect x="10" y="10" width="492" height="492" rx="15" stroke="black" stroke-width="20"/>
+<circle cx="75" cy="75" r="17.5" stroke="black" stroke-width="15"/>
+<circle cx="427" cy="427" r="17.5" stroke="black" stroke-width="15"/>
+<circle cx="75" cy="427" r="17.5" stroke="black" stroke-width="15"/>
+<circle cx="427" cy="75" r="17.5" stroke="black" stroke-width="15"/>
+<mask id="path-6-inside-1_20_2" fill="white">
+<path d="M193 149C193 143.477 197.477 139 203 139H308C313.523 139 318 143.477 318 149V264H193V149Z"/>
+</mask>
+<path d="M193 149C193 143.477 197.477 139 203 139H308C313.523 139 318 143.477 318 149V264H193V149Z" stroke="black" stroke-width="30" mask="url(#path-6-inside-1_20_2)"/>
+<path d="M208 256.5V249H193V256.5H208ZM193 366.5C193 370.642 196.358 374 200.5 374C204.642 374 208 370.642 208 366.5H193ZM193 256.5V366.5H208V256.5H193Z" fill="black"/>
+<path d="M310.5 374L318 374L318 359L310.5 359L310.5 374ZM200.5 359C196.358 359 193 362.358 193 366.5C193 370.642 196.358 374 200.5 374L200.5 359ZM310.5 359L200.5 359L200.5 374L310.5 374L310.5 359Z" fill="black"/>
+<path d="M237.443 314.5L205.662 256.5H313.557L345.338 314.5H237.443Z" stroke="black" stroke-width="15"/>
+<line x1="236.744" y1="315.462" x2="200.462" y2="366.256" stroke="black" stroke-width="15" stroke-linecap="round"/>
+<line x1="347.372" y1="323.518" x2="316.518" y2="363.628" stroke="black" stroke-width="15" stroke-linecap="square"/>
+</svg>

@@ -7,6 +7,15 @@
     overflow: hidden;
 }
 
-.animTextWrapper {
+.switchWrapper {
+    // width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.switchSize {
+    width: 10vw;
+    height: 10vw;
 }
