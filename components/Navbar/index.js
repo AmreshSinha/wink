@@ -258,24 +258,63 @@ export default function Navbar() {
       <div className={styles.navbarWrapper}>
         <Link href="/">
           <a className={styles.aLetterWrapper}>
-            <img
+            {/* <img
               src="./aCircleLeft.svg"
               className={styles.aCircleLeft}
               alt="aCircle"
               ref={aCircleLeft}
-            />
-            <img
+            /> */}
+            <svg
+              className={styles.aCircleLeft}
+              ref={aCircleLeft}
+              width="100"
+              height="100"
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="50" cy="50" r="40" stroke="black" stroke-width="20" />
+            </svg>
+            {/* <img
               src="./aRectRight.svg"
               className={styles.aRectRight}
               alt="aRect"
               ref={aRectRight}
-            />
+            /> */}
+            <svg
+              className={styles.aRectRight}
+              ref={aRectRight}
+              width="20"
+              height="100"
+              viewBox="0 0 20 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="10"
+                y1="4.37114e-07"
+                x2="10"
+                y2="100"
+                stroke="black"
+                stroke-width="20"
+              />
+            </svg>
             <div className={styles.aSquare} ref={aSquare}>
-              <img
+              {/* <img
                 src="./aSquare.svg"
                 className={styles.aSquareItem}
                 alt="aSquare"
-              />
+              /> */}
+              <svg
+                className={styles.aSquareItem}
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="20" height="20" fill="black" />
+              </svg>
             </div>
           </a>
         </Link>
