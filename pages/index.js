@@ -181,16 +181,16 @@ export default function Home() {
         amount: 0.3,
       },
     });
-    let heyIAmText = heyIAm.current.innerHTML.replace(/&nbsp;/g, "").split("");
-    for (let i = 0; i < heyIAmText.length; i++) {
-      if (heyIAmText[i] === " ") {
-        heyIAmText[i] = "<span>&nbsp;</span>";
-      } else {
-        heyIAmText[i] = `<span>${heyIAmText[i]}</span>`;
-      }
-    }
-    heyIAmText.push("<span>&nbsp;</span>");
-    heyIAm.current.innerHTML = heyIAmText.join("");
+    // let heyIAmText = heyIAm.current.innerHTML.replace(/&nbsp;/g, "").split("");
+    // for (let i = 0; i < heyIAmText.length; i++) {
+    //   if (heyIAmText[i] === " ") {
+    //     heyIAmText[i] = "<span>&nbsp;</span>";
+    //   } else {
+    //     heyIAmText[i] = `<span>${heyIAmText[i]}</span>`;
+    //   }
+    // }
+    // heyIAmText.push("<span>&nbsp;</span>");
+    // heyIAm.current.innerHTML = heyIAmText.join("");
     gsap.from(headingH1.current, {
       duration: 1.8,
       y: 250,
