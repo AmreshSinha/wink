@@ -7,6 +7,15 @@ import TrailingPointerCircle from "../components/TrailingPointerCircle";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import {AnaglyphEffect} from "three/examples/jsm/effects/AnaglyphEffect";
+import {EffectComposer} from "three/examples/jsm/postprocessing/EffectComposer";
+import {RenderPass} from "three/examples/jsm/postprocessing/RenderPass";
+import {MaskPass} from "three/examples/jsm/postprocessing/MaskPass";
+import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
+import {FilmPass} from "three/examples/jsm/postprocessing/FilmPass";
+import {CopyShader} from "three/examples/jsm/shaders/CopyShader";
+import {FilmShader} from "three/examples/jsm/shaders/FilmShader";
+import {RGBShiftShader} from "three/examples/jsm/shaders/RGBShiftShader"
 import { Material, Texture, AnimationMixer, AnimationAction } from "three";
 
 export default function Skills() {
@@ -23,11 +32,17 @@ export default function Skills() {
     const scene = new THREE.Scene();
 
     // Lights
-    const pointLight = new THREE.AmbientLight(0xcccccc);
+    const pointLight = new THREE.AmbientLight(0xfff, 100);
     pointLight.position.x = 2;
-    pointLight.position.y = 3;
-    pointLight.position.z = 4;
+    pointLight.position.y = 1;
+    pointLight.position.z = 0.5;
     scene.add(pointLight);
+
+    // const pointLightHelper = new THREE.PointLightHelper(pointLight, 2.4);
+    // scene.add(pointLightHelper);
+
+    // const axesHelper = new THREE.AxesHelper( 5 );
+    // scene.add( axesHelper );
 
     // Loading Model
     const objs = [];
@@ -38,7 +53,7 @@ export default function Skills() {
         mixer.clipAction(anim).play();
       }
       gltf.scene.scale.set(0.4, 0.4, 0.4);
-      gltf.scene.rotation.copy(new THREE.Euler(0, (-3 * Math.PI) / 4, 0));
+      gltf.scene.rotation.copy(new THREE.Euler(0, (3 * Math.PI) / 2, 0));
       gltf.scene.position.set(2, 1, 0);
       scene.add(gltf.scene);
       objs.push({ gltf, mixer });
@@ -76,9 +91,9 @@ export default function Skills() {
       0.1,
       100
     );
-    camera.position.x = 2;
-    camera.position.y = 1;
-    camera.position.z = 1;
+    camera.position.x = 1.95;
+    camera.position.y = 0.9;
+    camera.position.z = 0.6;
     scene.add(camera);
 
     /**
@@ -91,6 +106,33 @@ export default function Skills() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     /**
+     * Post processing Effect
+     */
+    const composer = new EffectComposer(renderer);
+    composer.addPass( new RenderPass(scene, camera) );
+    const effect = new ShaderPass(FilmShader);
+    effect.uniforms['time'].value = 0.0;
+    effect.uniforms['nIntensity'].value = 0.5;
+    effect.uniforms['sIntensity'].value = 0.5;
+    effect.uniforms['sCount'].value = 200;
+    effect.uniforms['grayscale'].value = 0;
+
+    composer.addPass( effect );
+
+    const effect1 = new ShaderPass(RGBShiftShader);
+    effect1.uniforms['amount'].value = 0.0015;
+    effect1.renderToScreen = true;
+    composer.addPass( effect1 );
+
+
+    /**
+     * AnaglyphEffect
+     */
+    // const effect = new AnaglyphEffect(renderer);
+    // effect.setSize(sizes.width, sizes.height);
+
+
+    /**
      * Animate
      */
     const clock = new THREE.Clock();
@@ -98,7 +140,13 @@ export default function Skills() {
       objs.forEach(({ mixer }) => {
         mixer.update(clock.getDelta());
       });
-      renderer.render(scene, camera);
+      let change = clock.getDelta();
+      effect.uniforms['time'].value = change*100;
+      effect.uniforms['nIntensity'].value = 5;
+      effect.uniforms['sIntensity'].value = 0;
+      effect.uniforms['sCount'].value = 200;
+      effect.uniforms['grayscale'].value = 0;
+      composer.render(scene, camera);
       window.requestAnimationFrame(tick);
       // const elapsedTime = clock.getElapsedTime();
 
@@ -143,11 +191,23 @@ export default function Skills() {
       height: 0,
     });
     tl.from(canvasAnim.current, {
-      duration: 2,
       width: 0,
-      height: 0,
+      height: 0
+    })
+    tl.from(camera.position, {
+      duration: 2,
+      z: 20,
       ease: "power4.out(1.7)",
     })
+    // tl.from(canvasAnim.current, {
+    //   duration: 4,
+    //   width: 0,
+    //   height: 0,
+    //   ease: "power4.out(1.7)",
+    // })
+    // tl.to(camera.rotation, {
+    // })
+    // console.log(objs)
   }, []);
   return (
     <>

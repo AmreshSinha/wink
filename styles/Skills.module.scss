@@ -20,3 +20,10 @@
     width: 10vw;
     height: 10vw;
 }
+
+@media only screen and (max-width: 500px) {
+    .switchSize {
+        width: 20vh;
+        height: 20vh;
+    }
+}
