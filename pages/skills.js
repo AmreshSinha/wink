@@ -173,7 +173,7 @@ export default function Skills() {
       ease: "power4.out(1.7)",
     });
     tl.to(switchOFF.current, {
-      duration: 0.4,
+      duration: 0.8,
       attr: { src: "/switchON.svg" },
     });
     tl.to(switchOFF.current, {
