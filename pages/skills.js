@@ -4,11 +4,119 @@ import WhiteNavbar from "../components/Navbar/index.white";
 import { gsap } from "gsap/dist/gsap";
 import { useEffect, useRef } from "react";
 import TrailingPointerCircle from "../components/TrailingPointerCircle";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { Material, Texture, AnimationMixer, AnimationAction } from "three";
 
 export default function Skills() {
   const sectionBG = useRef();
   const switchOFF = useRef();
+  const canvasWrapper = useRef();
+  const canvasAnim = useRef();
   useEffect(() => {
+    // Three Webgl Animation
+    // Canvas
+    const canvas = canvasAnim.current;
+
+    // Scene
+    const scene = new THREE.Scene();
+
+    // Lights
+    const pointLight = new THREE.AmbientLight(0xcccccc);
+    pointLight.position.x = 2;
+    pointLight.position.y = 3;
+    pointLight.position.z = 4;
+    scene.add(pointLight);
+
+    // Loading Model
+    const objs = [];
+    const loader = new GLTFLoader();
+    loader.load("/scene.gltf", (gltf) => {
+      const mixer = new AnimationMixer(gltf.scene);
+      for (const anim of gltf.animations) {
+        mixer.clipAction(anim).play();
+      }
+      gltf.scene.scale.set(0.4, 0.4, 0.4);
+      gltf.scene.rotation.copy(new THREE.Euler(0, (-3 * Math.PI) / 4, 0));
+      gltf.scene.position.set(2, 1, 0);
+      scene.add(gltf.scene);
+      objs.push({ gltf, mixer });
+    });
+
+    /**
+     * Sizes
+     */
+    const sizes = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+
+    window.addEventListener("resize", () => {
+      // Update sizes
+      sizes.width = window.innerWidth;
+      sizes.height = window.innerHeight;
+
+      // Update camera
+      camera.aspect = sizes.width / sizes.height;
+      camera.updateProjectionMatrix();
+
+      // Update renderer
+      renderer.setSize(sizes.width, sizes.height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    });
+
+    /**
+     * Camera
+     */
+    // Base camera
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      sizes.width / sizes.height,
+      0.1,
+      100
+    );
+    camera.position.x = 2;
+    camera.position.y = 1;
+    camera.position.z = 1;
+    scene.add(camera);
+
+    /**
+     * Renderer
+     */
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+    });
+    renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    /**
+     * Animate
+     */
+    const clock = new THREE.Clock();
+    const tick = () => {
+      objs.forEach(({ mixer }) => {
+        mixer.update(clock.getDelta());
+      });
+      renderer.render(scene, camera);
+      window.requestAnimationFrame(tick);
+      // const elapsedTime = clock.getElapsedTime();
+
+      // Update objects
+      // sphere.rotation.y = 0.5 * elapsedTime;
+
+      // Update Orbital Controls
+      // controls.update()
+
+      // Render
+      // renderer.render(scene, camera);
+
+      // Call tick again on the next frame
+      // window.requestAnimationFrame(tick);
+    };
+
+    tick();
+
     const tl = gsap.timeline();
     tl.from(switchOFF.current, {
       duration: 0.8,
@@ -19,10 +127,10 @@ export default function Skills() {
     tl.to(switchOFF.current, {
       duration: 0.4,
       attr: { src: "/switchON.svg" },
-    })
+    });
     tl.to(switchOFF.current, {
       duration: 0.4,
-    })
+    });
     tl.to(sectionBG.current, {
       duration: 0.4,
       width: "100vw",
@@ -32,7 +140,13 @@ export default function Skills() {
     }).to(switchOFF.current, {
       // Remove the div after animation is done
       width: 0,
-      height: 0
+      height: 0,
+    });
+    tl.from(canvasAnim.current, {
+      duration: 2,
+      width: 0,
+      height: 0,
+      ease: "power4.out(1.7)",
     })
   }, []);
   return (
@@ -53,6 +167,7 @@ export default function Skills() {
             className={styles.switchSize}
             ref={switchOFF}
           />
+          <canvas ref={canvasAnim}></canvas>
         </div>
       </section>
     </>
