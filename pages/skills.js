@@ -22,9 +22,6 @@ export default function Skills() {
     })
     tl.to(switchOFF.current, {
       duration: 0.4,
-      width: 0,
-      height: 0,
-      ease: "power4.out(1.7)",
     })
     tl.to(sectionBG.current, {
       duration: 0.4,
@@ -32,6 +29,10 @@ export default function Skills() {
       height: "100vh",
       backgroundColor: "#000",
       ease: "power4.out(1.7)",
+    }).to(switchOFF.current, {
+      // Remove the div after animation is done
+      width: 0,
+      height: 0
     })
   }, []);
   return (
