@@ -7,15 +7,14 @@ import TrailingPointerCircle from "../components/TrailingPointerCircle";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import {AnaglyphEffect} from "three/examples/jsm/effects/AnaglyphEffect";
-import {EffectComposer} from "three/examples/jsm/postprocessing/EffectComposer";
-import {RenderPass} from "three/examples/jsm/postprocessing/RenderPass";
-import {MaskPass} from "three/examples/jsm/postprocessing/MaskPass";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
+import { MaskPass } from "three/examples/jsm/postprocessing/MaskPass";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
-import {FilmPass} from "three/examples/jsm/postprocessing/FilmPass";
-import {CopyShader} from "three/examples/jsm/shaders/CopyShader";
-import {FilmShader} from "three/examples/jsm/shaders/FilmShader";
-import {RGBShiftShader} from "three/examples/jsm/shaders/RGBShiftShader"
+import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
+import { CopyShader } from "three/examples/jsm/shaders/CopyShader";
+import { FilmShader } from "three/examples/jsm/shaders/FilmShader";
+import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader";
 import { Material, Texture, AnimationMixer, AnimationAction } from "three";
 
 export default function Skills() {
@@ -109,33 +108,25 @@ export default function Skills() {
      * Post processing Effect
      */
     const composer = new EffectComposer(renderer);
-    composer.addPass( new RenderPass(scene, camera) );
+    composer.addPass(new RenderPass(scene, camera));
     const effect = new ShaderPass(FilmShader);
-    effect.uniforms['time'].value = 0.0;
-    effect.uniforms['nIntensity'].value = 0.5;
-    effect.uniforms['sIntensity'].value = 0.5;
-    effect.uniforms['sCount'].value = 200;
-    effect.uniforms['grayscale'].value = 0;
+    effect.uniforms["time"].value = 0.0;
+    effect.uniforms["nIntensity"].value = 0.5;
+    effect.uniforms["sIntensity"].value = 0.5;
+    effect.uniforms["sCount"].value = 200;
+    effect.uniforms["grayscale"].value = 0;
 
-    composer.addPass( effect );
+    composer.addPass(effect);
 
     const effect1 = new ShaderPass(RGBShiftShader);
-    effect1.uniforms['amount'].value = 0.0015;
+    effect1.uniforms["amount"].value = 0.0015;
     effect1.renderToScreen = true;
-    composer.addPass( effect1 );
-
-
-    /**
-     * AnaglyphEffect
-     */
-    // const effect = new AnaglyphEffect(renderer);
-    // effect.setSize(sizes.width, sizes.height);
-
+    composer.addPass(effect1);
 
     /**
      * Animate
      */
-    document.addEventListener('mousemove', onDocumentMouseMove);
+    document.addEventListener("mousemove", onDocumentMouseMove);
     let mouseX = 0;
     let mouseY = 0;
 
@@ -146,26 +137,35 @@ export default function Skills() {
     const windowY = window.innerHeight / 2;
 
     function onDocumentMouseMove(event) {
-        mouseX = (event.clientX - windowX)
-        mouseY = (event.clientY - windowY)
+      mouseX = event.clientX - windowX;
+      mouseY = event.clientY - windowY;
     }
 
     const clock = new THREE.Clock();
     const tick = () => {
-      targetX = mouseX * 0.001
-      targetY = mouseY * 0.001
+      targetX = mouseX * 0.001;
+      targetY = mouseY * 0.001;
 
       objs.forEach(({ mixer }) => {
         mixer.update(clock.getDelta());
       });
       let change = clock.getDelta();
-      effect.uniforms['time'].value = change*100;
-      effect.uniforms['nIntensity'].value = 5;
-      effect.uniforms['sIntensity'].value = 0;
-      effect.uniforms['sCount'].value = 200;
-      effect.uniforms['grayscale'].value = 0;
-      
-      
+      effect.uniforms["time"].value = change * 100;
+      effect.uniforms["nIntensity"].value = 5;
+      effect.uniforms["sIntensity"].value = 0;
+      effect.uniforms["sCount"].value = 200;
+      effect.uniforms["grayscale"].value = 0;
+
+      try {
+        objs[0].gltf.scene.rotation.x +=
+          0.05 * (targetX - objs[0].gltf.scene.rotation.x);
+        objs[0].gltf.scene.rotation.y +=
+          0.05 * (targetY - objs[0].gltf.scene.rotation.z);
+        objs[0].gltf.scene.rotation.z +=
+          0.05 * (targetY - objs[0].gltf.scene.rotation.z);
+      } catch (e) {
+        console.log("Wait");
+      }
       composer.render(scene, camera);
       window.requestAnimationFrame(tick);
       // const elapsedTime = clock.getElapsedTime();
@@ -212,13 +212,13 @@ export default function Skills() {
     });
     tl.from(canvasAnim.current, {
       width: 0,
-      height: 0
-    })
+      height: 0,
+    });
     tl.from(camera.position, {
       duration: 2,
       z: 20,
       ease: "power4.out(1.7)",
-    })
+    });
   }, []);
   return (
     <>
