@@ -135,8 +135,26 @@ export default function Skills() {
     /**
      * Animate
      */
+    document.addEventListener('mousemove', onDocumentMouseMove);
+    let mouseX = 0;
+    let mouseY = 0;
+
+    let targetX = 0;
+    let targetY = 0;
+
+    const windowX = window.innerWidth / 2;
+    const windowY = window.innerHeight / 2;
+
+    function onDocumentMouseMove(event) {
+        mouseX = (event.clientX - windowX)
+        mouseY = (event.clientY - windowY)
+    }
+
     const clock = new THREE.Clock();
     const tick = () => {
+      targetX = mouseX * 0.001
+      targetY = mouseY * 0.001
+
       objs.forEach(({ mixer }) => {
         mixer.update(clock.getDelta());
       });
@@ -146,6 +164,8 @@ export default function Skills() {
       effect.uniforms['sIntensity'].value = 0;
       effect.uniforms['sCount'].value = 200;
       effect.uniforms['grayscale'].value = 0;
+      
+      
       composer.render(scene, camera);
       window.requestAnimationFrame(tick);
       // const elapsedTime = clock.getElapsedTime();
@@ -199,15 +219,6 @@ export default function Skills() {
       z: 20,
       ease: "power4.out(1.7)",
     })
-    // tl.from(canvasAnim.current, {
-    //   duration: 4,
-    //   width: 0,
-    //   height: 0,
-    //   ease: "power4.out(1.7)",
-    // })
-    // tl.to(camera.rotation, {
-    // })
-    // console.log(objs)
   }, []);
   return (
     <>
