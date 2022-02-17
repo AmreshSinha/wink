@@ -7,6 +7,12 @@ module.exports = {
         type: 'json',
         use: 'yaml-loader',
       },
+      {
+        test: /\.(glb|gltf)$/,
+        use: {
+          loader: 'file-loader',
+        }
+      }
     )
     return config
   }
