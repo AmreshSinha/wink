@@ -5,23 +5,27 @@ import { gsap } from "gsap/dist/gsap";
 import { useEffect, useRef } from "react";
 import TrailingPointerCircle from "../components/TrailingPointerCircle";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
-import { MaskPass } from "three/examples/jsm/postprocessing/MaskPass";
+// import { MaskPass } from "three/examples/jsm/postprocessing/MaskPass";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
-import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
-import { CopyShader } from "three/examples/jsm/shaders/CopyShader";
+// import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass";
+// import { CopyShader } from "three/examples/jsm/shaders/CopyShader";
 import { FilmShader } from "three/examples/jsm/shaders/FilmShader";
 import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader";
-import { Material, Texture, AnimationMixer, AnimationAction } from "three";
+// import { Material, Texture, AnimationMixer, AnimationAction } from "three";
+import { AnimationMixer } from "three";
 
 export default function Skills() {
   const sectionBG = useRef();
   const switchOFF = useRef();
   const canvasWrapper = useRef();
   const canvasAnim = useRef();
+  const skillsCardWrapper = useRef();
+  const skillsHead = useRef();
+  const skillsHeadWrapper = useRef();
   useEffect(() => {
     // Three Webgl Animation
     // Canvas
@@ -219,6 +223,37 @@ export default function Skills() {
       z: 20,
       ease: "power4.out(1.7)",
     });
+    tl.to(skillsHeadWrapper.current, {
+      duration: 0.5,
+      width: "75vw",
+    })
+    tl.to(skillsHeadWrapper.current, {
+      duration: 0.5,
+      height: "75vh",
+      padding: 40,
+    })
+    tl.to(skillsHead.current, {
+      display: "block",
+      duration: 1,
+      ease: "power4.out(1.7)",
+      autoAlpha: 1,
+    })
+    // tl.to(canvasAnim.current, {
+    //   delay: 1,
+    //   duration: 1,
+    //   width: innerWidth / 4,
+    //   height: innerHeight / 4 ,
+    //   ease: "power4.out(1.7)",
+    // })
+    // tl.to(canvasAnim.current, {
+    //   duration: 1,
+    //   x: (-(innerWidth / 2)+40+innerWidth/6),
+    //   ease: "power4.out(1.7)"
+    // })
+    // tl.to(skillsCardWrapper.current, {
+    //   delay: 1,
+    //   direction: 1,
+    // })
   }, []);
   return (
     <>
@@ -226,6 +261,13 @@ export default function Skills() {
         <title>Skills | AmreshSinha 👋</title>
         <meta name="description" content="Passionate Developer!" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&display=swap" media="print" onload="this.media='all'" />
+        <noscript>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&display=swap" />
+        </noscript>
       </Head>
 
       <section ref={sectionBG}>
@@ -238,8 +280,24 @@ export default function Skills() {
             className={styles.switchSize}
             ref={switchOFF}
           />
+          <div className={styles.skillsHeadWrapper} ref={skillsHeadWrapper}>
+            <div className={styles.progLibWrapper}>
+              <div className={styles.progWrapper}></div>
+              <div className={styles.libsWrapper}></div>
+            </div>
+            <h1 className={`${styles.skillsHead} ${styles.water}`} ref={skillsHead}>&lt;/&gt;</h1>
+            <div className={styles.cloudDevToolsWrapper}>
+              <div className={styles.cloudWrapper}></div>
+              <div className={styles.devToolsWrapper}></div>
+            </div>
+          </div>
           <canvas ref={canvasAnim}></canvas>
         </div>
+        {/* <div className={styles.switchWrapperOverlay}>
+          <div className={styles.skillsCardWrapper} ref={skillsCardWrapper}>
+            
+          </div>
+        </div> */}
       </section>
     </>
   );

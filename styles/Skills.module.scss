@@ -9,7 +9,7 @@
 
 .switchWrapper {
     position: absolute;
-    // width: 100vw;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -26,4 +26,100 @@
         width: 20vh;
         height: 20vh;
     }
+}
+
+.switchWrapperOverlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skillsCardWrapper {
+    background: rgba(255, 255, 255, 0.5);
+    // display: none;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skillsHeadWrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 0;
+    height: 0;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.skillsHead {
+    display: none;
+    mix-blend-mode: difference;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 100;
+    opacity: 0;
+    // z-index: 10;
+}
+
+// font-family: 'Fira Code', monospace;
+// font-family: 'Lato', sans-serif;
+
+.skillsArrow {
+    margin: 0;
+    mix-blend-mode: difference;
+    color: white;
+}
+
+.progLibWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cloudDevToolsWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.progWrapper {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.libsWrapper {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.cloudWrapper {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.devToolsWrapper {
+    width: 100%;
+    height: 100%;
+    background: #fff;
 }
