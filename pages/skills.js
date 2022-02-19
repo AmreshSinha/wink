@@ -277,7 +277,7 @@ export default function Skills() {
         />
         {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           rel="preload"
           as="style"
@@ -287,7 +287,7 @@ export default function Skills() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&family=Sora&display=swap"
           media="print"
-          onload="this.media='all'"
+          onLoad="this.media='all'"
         />
         <noscript>
           <link
@@ -314,9 +314,9 @@ export default function Skills() {
                 <i className="devicon-c-plain" />
                 <i className="devicon-cplusplus-plain" />
                 <i className="devicon-html5-plain-wordmark" />
-                <i class="devicon-css3-plain-wordmark" />
-                <i class="devicon-python-plain" />
-                <i class="devicon-javascript-plain" />
+                <i className="devicon-css3-plain-wordmark" />
+                <i className="devicon-python-plain" />
+                <i className="devicon-javascript-plain" />
               </div>
             </div>
             {/* <hr className={styles.dividerLine} /> */}
@@ -325,21 +325,21 @@ export default function Skills() {
                 Libs, Frameworks and DB(s)
               </h1>
               <div className={styles.libsFramItems}>
-                <i class="devicon-git-plain" />
-                <i class="devicon-flask-original" />
-                <i class="devicon-nodejs-plain" />
-                <i class="devicon-bootstrap-plain" />
-                <i class="devicon-express-original" />
-                <i class="devicon-react-original" />
-                <i class="devicon-nextjs-original" />
-                <i class="devicon-mongodb-plain-wordmark" />
+                <i className="devicon-git-plain" />
+                <i className="devicon-flask-original" />
+                <i className="devicon-nodejs-plain" />
+                <i className="devicon-bootstrap-plain" />
+                <i className="devicon-express-original" />
+                <i className="devicon-react-original" />
+                <i className="devicon-nextjs-original" />
+                <i className="devicon-mongodb-plain-wordmark" />
               </div>
             </div>
             <div className={styles.libsWrapper}>
               <h1 className={styles.libsFramHead}>I love these too!</h1>
               <div className={styles.libsFramItems}>
-                <i class="devicon-linux-plain" />
-                <i class="devicon-docker-plain-wordmark" />
+                <i className="devicon-linux-plain" />
+                <i className="devicon-docker-plain-wordmark" />
               </div>
             </div>
           </div>
