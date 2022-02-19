@@ -270,12 +270,12 @@ export default function Skills() {
         <title>Skills | AmreshSinha 👋</title>
         <meta name="description" content="Passionate Developer!" />
         <link rel="icon" href="/favicon.ico" />
-        // Devicons
+        {/* Devicons */}
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
-        // Fonts
+        {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
