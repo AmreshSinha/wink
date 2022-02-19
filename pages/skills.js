@@ -225,19 +225,28 @@ export default function Skills() {
     });
     tl.to(skillsHeadWrapper.current, {
       duration: 0.5,
-      width: "75vw",
-    })
+      width: () => {
+        if (window.innerWidth < 500) {
+          return "95%";
+        } else return "auto";
+      },
+    });
     tl.to(skillsHeadWrapper.current, {
       duration: 0.5,
-      height: "75vh",
-      padding: 40,
-    })
-    tl.to(skillsHead.current, {
-      display: "block",
-      duration: 1,
-      ease: "power4.out(1.7)",
-      autoAlpha: 1,
-    })
+      height: "auto",
+      padding: () => {
+        if (window.innerWidth < 500) {
+          console.log("Small");
+          return 20;
+        } else return 40;
+      },
+    });
+    // tl.to(skillsHead.current, {
+    //   display: "block",
+    //   duration: 1,
+    //   ease: "power4.out(1.7)",
+    //   autoAlpha: 1,
+    // })
     // tl.to(canvasAnim.current, {
     //   delay: 1,
     //   duration: 1,
@@ -261,12 +270,30 @@ export default function Skills() {
         <title>Skills | AmreshSinha 👋</title>
         <meta name="description" content="Passionate Developer!" />
         <link rel="icon" href="/favicon.ico" />
+        // Devicons
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+        // Fonts
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&display=swap" media="print" onload="this.media='all'" />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&family=Sora&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&family=Sora&display=swap"
+          media="print"
+          onload="this.media='all'"
+        />
         <noscript>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&display=swap" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&family=Sora&display=swap"
+          />
         </noscript>
       </Head>
 
@@ -281,14 +308,39 @@ export default function Skills() {
             ref={switchOFF}
           />
           <div className={styles.skillsHeadWrapper} ref={skillsHeadWrapper}>
-            <div className={styles.progLibWrapper}>
-              <div className={styles.progWrapper}></div>
-              <div className={styles.libsWrapper}></div>
+            <div className={styles.progWrapper}>
+              <h1 className={styles.progHead}>Languages&nbsp;</h1>
+              <div className={styles.progItems}>
+                <i className="devicon-c-plain" />
+                <i className="devicon-cplusplus-plain" />
+                <i className="devicon-html5-plain-wordmark" />
+                <i class="devicon-css3-plain-wordmark" />
+                <i class="devicon-python-plain" />
+                <i class="devicon-javascript-plain" />
+              </div>
             </div>
-            <h1 className={`${styles.skillsHead} ${styles.water}`} ref={skillsHead}>&lt;/&gt;</h1>
-            <div className={styles.cloudDevToolsWrapper}>
-              <div className={styles.cloudWrapper}></div>
-              <div className={styles.devToolsWrapper}></div>
+            {/* <hr className={styles.dividerLine} /> */}
+            <div className={styles.libsWrapper}>
+              <h1 className={styles.libsFramHead}>
+                Libraries, Frameworks and DB(s)
+              </h1>
+              <div className={styles.libsFramItems}>
+                <i class="devicon-git-plain" />
+                <i class="devicon-flask-original" />
+                <i class="devicon-nodejs-plain" />
+                <i class="devicon-bootstrap-plain" />
+                <i class="devicon-express-original" />
+                <i class="devicon-react-original" />
+                <i class="devicon-nextjs-original" />
+                <i class="devicon-mongodb-plain-wordmark" />
+              </div>
+            </div>
+            <div className={styles.libsWrapper}>
+              <h1 className={styles.libsFramHead}>I love these too!</h1>
+              <div className={styles.libsFramItems}>
+                <i class="devicon-linux-plain" />
+                <i class="devicon-docker-plain-wordmark" />
+              </div>
             </div>
           </div>
           <canvas ref={canvasAnim}></canvas>
