@@ -322,7 +322,7 @@ export default function Skills() {
             {/* <hr className={styles.dividerLine} /> */}
             <div className={styles.libsWrapper}>
               <h1 className={styles.libsFramHead}>
-                Libraries, Frameworks and DB(s)
+                Libs, Frameworks and DB(s)
               </h1>
               <div className={styles.libsFramItems}>
                 <i class="devicon-git-plain" />
