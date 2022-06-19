@@ -62,8 +62,6 @@ export default function Home() {
 
     const el = useRef(null)
     const elParent = useRef(null)
-    // var temp = 0;
-    // const stringColors = ['#47FFE9', '#00FFAB', '#F7EC09', '#F9D371']
 
     useEffect(() => {
         var temp = 0;
