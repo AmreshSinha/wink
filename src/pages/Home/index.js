@@ -7,6 +7,12 @@ import ShowMoreButton from "../../components/ShowMoreButton"
 import bgDesktop from "../../images/bgDesktop2.jpg"
 import SocialIcons from "../../components/SocialIcons";
 import Cursor from "../../components/Cursor";
+import {Helmet} from "react-helmet";
+import favicon from '../../images/favicon.ico'
+import appleIcon from '../../images/apple-touch-icon.png'
+import favicon32 from '../../images/favicon-32x32.png'
+import favicon16 from '../../images/favicon-16x16.png'
+import siteManifest from '../../images/site.webmanifest'
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -56,10 +62,12 @@ export default function Home() {
 
     const el = useRef(null)
     const elParent = useRef(null)
-    var temp = 0;
-    const stringColors = ['#47FFE9', '#00FFAB', '#F7EC09', '#F9D371']
+    // var temp = 0;
+    // const stringColors = ['#47FFE9', '#00FFAB', '#F7EC09', '#F9D371']
 
     useEffect(() => {
+        var temp = 0;
+        const stringColors = ['#47FFE9', '#00FFAB', '#F7EC09', '#F9D371']
         const typed = new Typed(el.current, {
             strings: ['developer', 'open sourcer', 'devops eng.', 'student'],
             shuffle: false,
@@ -82,6 +90,41 @@ export default function Home() {
     }, [])
 
     return (
+        <>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Amresh Sinha</title>
+            <link rel="canonical" href="/" />
+            <link rel="icon" href={favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={appleIcon} />
+            <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+            <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+            <link rel="manifest" href={siteManifest} />
+
+            <meta name="title" content="Amresh Sinha" />
+            <meta name="description" content="Amresh Sinha's personal website" />
+            <meta name="keywords" content="Amresh Sinha, Personal Website, Developer, Open Sourcer, Devops Engineer, Student" />
+            <meta name="author" content="Amresh Sinha" />
+
+            <meta property="og:title" content="Amresh Sinha" />
+            <meta property="og:description" content="Amresh Sinha's personal website" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="/" />
+            <meta property="og:image" content="images/bgDesktop2.jpg" />
+            <meta property="og:image:width" content="1920" />
+            <meta property="og:image:height" content="1080" />
+            <meta property="og:image:alt" content="Amresh Sinha's personal website" />
+            <meta property="og:site_name" content="Amresh Sinha" />
+            <meta property="og:locale" content="en_US" />
+
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content="Amresh Sinha" />
+            <meta name="twitter:description" content="Amresh Sinha's personal website" />
+            <meta name="twitter:image" content="images/bgDesktop2.jpg" />
+            <meta name="twitter:image:alt" content="Amresh Sinha's personal website" />
+            <meta name="twitter:site" content="@amreshsinha" />
+            <meta name="twitter:creator" content="@aps_codes" />
+        </Helmet>
         <HeroWrapper>
             <DesktopNav />
             <MainAreaWrapper>
@@ -102,6 +145,7 @@ export default function Home() {
             </FooterWrapper>
             {!tablet ? <Cursor /> : null}
         </HeroWrapper>
+        </>
     )
 }
 
