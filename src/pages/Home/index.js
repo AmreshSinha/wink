@@ -21,7 +21,7 @@ function getWindowSize() {
 
 export default function Home() {
     // Moving Background WIP
-    // const movingBackground = useRef()
+    const movingBackground = useRef()
     const [windowSize, setWindowSize] = useState(getWindowSize())
     const [mobile, setMobile] = useState(false)
     const [tablet, setTablet] = useState(false)
@@ -87,6 +87,35 @@ export default function Home() {
         };      
     }, [])
 
+    useEffect(() => {
+        var lFollowX = 0,
+            lFollowY = 0,
+            x = 0,
+            y = 0,
+            friction = 1 / 50; // friction = 1 / 30;
+        
+        function moveBackground() {
+            x += (lFollowX - x) * friction;
+            y += (lFollowY - y) * friction;
+            
+            var translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+          
+            movingBackground.current.style.transform = translate;
+          
+            window.requestAnimationFrame(moveBackground);
+        }
+          
+        window.addEventListener('mousemove', function(e) {
+          
+            var lMouseX = Math.max(-100, Math.min(100, windowSize.innerWidth / 2 - e.clientX));
+            var lMouseY = Math.max(-100, Math.min(100, windowSize.innerHeight / 2 - e.clientY));
+            lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
+            lFollowY = (10 * lMouseY) / 100;
+        });
+          
+        moveBackground();
+    }, [])
+
     return (
         <>
         <Helmet>
@@ -127,6 +156,7 @@ export default function Home() {
             <meta name="twitter:creator" content="@aps_codes" />
         </Helmet>
         <HeroWrapper>
+            <BGdiv ref={movingBackground} />
             <DesktopNav />
             <MainAreaWrapper>
                 <IntroWrapper>
@@ -153,19 +183,39 @@ export default function Home() {
 const HeroWrapper = styled.div`
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
-    background-image: url(${bgDesktop});
+    overflow: hidden;
+    position: relative;
+    /* background-image: url(${bgDesktop});
     background-position: top -10vh left;
     @media screen and (max-width: 1200px) {
         background-position: top left;
     }
     background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(95%);
+    filter: brightness(95%); */
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+`
+
+const BGdiv = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+    background: url(${bgDesktop}) no-repeat center center;
+    background-position: top -10vh left;
+    background-size: cover;
+    filter: brightness(95%);
+    @media screen and (max-width: 1200px) {
+        background-position: top left;
+    }
+
+    transform: scale(1.1);
 `
 
 const MainAreaWrapper = styled.div`
