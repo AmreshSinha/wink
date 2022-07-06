@@ -6,9 +6,15 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/blog" element={<Blog />} />
       {/* <Route path="about" element={<About />} /> */}
     </Routes>
   );
+}
+
+function Blog() {
+  window.location.href = 'https://fossian.com';
+  return null;
 }
 
 export default App;
