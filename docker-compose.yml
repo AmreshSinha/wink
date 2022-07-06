@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  wink:
+    build: .
+    restart: always
+    networks:
+      - default
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.wink-secure.entrypoints=websecure"
+      - "traefik.http.routers.wink-secure.rule=Host(`amresh.x-axis.app`)"
+      - "traefik.http.routers.wink-secure.service=wink-service"
+      - "traefik.http.services.wink-service.loadbalancer.server.port=80"
+
+networks:
+  proxy:
+    external: true
