@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Typed from 'typed.js';
 import DesktopNav from "../../components/DesktopNav"
 import ShowMoreButton from "../../components/ShowMoreButton"
-import bgDesktop from "../../images/bgDesktop2.webp"
+import bgDesktop from "../../images/bgDesktop_Optimized.webp"
 import SocialIcons from "../../components/SocialIcons";
 import Cursor from "../../components/Cursor";
 import {Helmet} from "react-helmet";
