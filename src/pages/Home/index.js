@@ -99,11 +99,13 @@ export default function Home() {
             <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
             <link rel="manifest" href={siteManifest} />
 
+            {/* Meta Info */}
             <meta name="title" content="Amresh Sinha" />
             <meta name="description" content="Amresh Sinha's personal website" />
             <meta name="keywords" content="Amresh Sinha, Personal Website, Developer, Open Sourcer, Devops Engineer, Student" />
             <meta name="author" content="Amresh Sinha" />
 
+            {/* Open Graph */}
             <meta property="og:title" content="Amresh Sinha" />
             <meta property="og:description" content="Amresh Sinha's personal website" />
             <meta property="og:type" content="website" />
@@ -115,6 +117,7 @@ export default function Home() {
             <meta property="og:site_name" content="Amresh Sinha" />
             <meta property="og:locale" content="en_US" />
 
+            {/* twitter meta */}
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:title" content="Amresh Sinha" />
             <meta name="twitter:description" content="Amresh Sinha's personal website" />
