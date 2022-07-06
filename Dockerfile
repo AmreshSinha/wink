@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:16-alpine as build
 # COPY package.json and package-lock.json
 COPY package*.json ./
 # Install dependencies
