@@ -10,7 +10,7 @@ export default function DesktopNav() {
                 <NavLink to="/" id="home"><span>01.</span> Home</NavLink>
                 <NavLink to="/works" id="works"><span>02.</span> Works</NavLink>
                 <NavLink to="/blog" id="works"><span>03.</span> Blog</NavLink>
-                <NavLink to="/me"><span>03.</span> Me</NavLink>
+                <NavLink to="/me"><span>04.</span> Me</NavLink>
             </Links>
         </NavWrapper>
     )
