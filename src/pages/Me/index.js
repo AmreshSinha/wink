@@ -493,7 +493,9 @@ export default function Me() {
 }
 
 const Wrapper = styled.div`
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    * {
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    }
     /* width: 100%; */
     /* height: 5000vh; */
     background: #111;
