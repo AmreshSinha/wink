@@ -1,22 +1,22 @@
 import styled from "styled-components";
 import { FiAtSign, FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
 
-export default function SocialIcons({ email }) {
+export default function SocialIcons({ email, color }) {
     return (
         <SocialIconsContainer>
             {email ? 
             <a href={`mailto:${email}`}>
-                <FiAtSign />
+                <FiAtSign color={color ? `${color}` : null} />
             </a> : null
             }
             <a href="https://github.com/AmreshSinha">
-                <FiGithub />
+                <FiGithub color={color ? `${color}` : null} />
             </a>
             <a href="https://twitter.com/aps_codes">
-                <FiTwitter />
+                <FiTwitter color={color ? `${color}` : null} />
             </a>
             <a href="https://www.linkedin.com/in/amresh-sinha/">
-                <FiLinkedin />
+                <FiLinkedin color={color ? `${color}` : null} />
             </a>
         </SocialIconsContainer>
     )
