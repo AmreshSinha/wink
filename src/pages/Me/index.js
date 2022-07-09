@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Animator, ScrollContainer, ScrollPage, Sticky, batch, Fade, MoveOut, StickyIn, FadeIn, ZoomIn, Move, MoveIn, ZoomOut } from 'react-scroll-motion';
 import { useInView } from 'react-intersection-observer';
+import { osName } from 'react-device-detect';
 import Cursor from "../../components/Cursor";
 import favicon from '../../images/favicon.ico'
 import appleIcon from '../../images/apple-touch-icon.png'
@@ -15,7 +16,8 @@ import meBg1 from '../../images/meBg1.jpg';
 import CloudsBG from '../../images/clouds-png-13378.png';
 import DockerBG from '../../images/ian-taylor-jOqJbvo1P9g-unsplash.jpg';
 import QRCode from '../../images/qr-code.png';
-import RickRoll from '../../images/Rick-Roll.mp4';
+// import RickRoll from '../../images/Rick-Roll.mp4';
+import RickRoll from '../../components/RickRoll';
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -589,17 +591,9 @@ export default function Me() {
 
                 <ScrollPage>
                     <Animator animation={batch(Sticky(), Fade())}>
-                        
-                        {/* <div ref={ref} style={{width: '100vw', height: '100vh'}}><Text2>{`Header inside viewport ${inView}`}</Text2></div> */}
                         <div ref={ref} style={{width: '100vw', height: '100vh', background: '#000'}}>
                             {inView ? 
-                            <video width="100%" height="100%" loop autoPlay playsInline>
-                            <source
-                                src={RickRoll}
-                                type="video/mp4"
-                            />
-                            Upgrade your browser &gt;:[
-                            </video> : null }
+                            <RickRoll os={osName} /> : null }
                         </div>
                     </Animator>
                 </ScrollPage>
