@@ -153,7 +153,7 @@ export default function Me() {
 
                 <ScrollPage page={11}>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
-                        <Text2 style={{fontSize: '3rem'}}>Here's some history of mine.</Text2>
+                        <Text2 style={{fontSize: '3rem'}}>Here's my journey.</Text2>
                     </Animator>
                 </ScrollPage>
 
