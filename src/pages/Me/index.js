@@ -541,7 +541,7 @@ const ScrollDown = styled.div`
 const Text2 = styled.h2`
     font-family: 'Space Grotesk', sans-serif;
     font-size: 8rem;
-    color: #999;
+    color: #F6FBF4;
     mix-blend-mode: difference;
     font-weight: 600;
     @media screen and (max-width: 768px) {
