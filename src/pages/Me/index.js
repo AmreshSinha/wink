@@ -352,7 +352,7 @@ export default function Me() {
 
                 <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveIn())}>
-                        <Text2 style={{fontSize: '2rem'}}>So yeah, in 1st yr I learned NodeJS, React, Express and MongoDB.</Text2>
+                        <Text2 style={{fontSize: '2rem'}}>So yeah, in 1st yr I learned OpenCV, NodeJS, React, Express and MongoDB.</Text2>
                     </Animator>
                 </ScrollPage>
                 
