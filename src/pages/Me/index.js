@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Animator, ScrollContainer, ScrollPage, Sticky, batch, Fade, MoveOut, StickyIn, FadeIn, ZoomIn, Move, MoveIn, ZoomOut } from 'react-scroll-motion';
+import { useInView } from 'react-intersection-observer';
 import Cursor from "../../components/Cursor";
 import favicon from '../../images/favicon.ico'
 import appleIcon from '../../images/apple-touch-icon.png'
@@ -11,6 +12,10 @@ import favicon16 from '../../images/favicon-16x16.png'
 import siteManifest from '../../images/site.webmanifest'
 import SocialIcons from '../../components/SocialIcons';
 import meBg1 from '../../images/meBg1.jpg';
+import CloudsBG from '../../images/clouds-png-13378.png';
+import DockerBG from '../../images/ian-taylor-jOqJbvo1P9g-unsplash.jpg';
+import QRCode from '../../images/qr-code.png';
+import RickRoll from '../../images/Rick-Roll.mp4';
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -52,6 +57,12 @@ export default function Me() {
         
     //     return () => window.addEventListener('scroll', handleScroll);
     // }, [])
+
+    // Rick Roll shh
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0,
+    });
     
     return (
         <>
@@ -405,6 +416,9 @@ export default function Me() {
                 </ScrollPage>
 
                 <ScrollPage>
+                    <Animator animation={batch(Fade(), Sticky())}>
+                        <div style={{width: '100vw', height: '100vh', background: `url(${CloudsBG}) no-repeat center center`}}></div>
+                    </Animator>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '4rem'}}>I used to love Cloud stuff from way back in 8th stnd.</Text2>
                     </Animator>
@@ -429,6 +443,9 @@ export default function Me() {
                 </ScrollPage>
                 
                 <ScrollPage>
+                    <Animator animation={batch(Fade(), Sticky())}>
+                        <div style={{width: '100vw', height: '100vh', background: `url(${DockerBG}) no-repeat center center`, backgroundSize: 'cover', filter: 'brightness(50%)'}}></div>
+                    </Animator>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '3.25rem'}}>Though I had some knowledge about Docker I brushed <img alt='' style={{width: '2.5rem'}} src="https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1faa5.png" /> it up again.</Text2>
                     </Animator>
@@ -508,6 +525,86 @@ export default function Me() {
                         </div>
                     </Animator>
                 </ScrollPage>
+                
+                <ScrollPage>
+                    <Animator animation={Sticky()}>
+                        <div style={{ display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center", height: "100%" }} >
+                            <Text2 style={{fontSize: '3.25rem'}}>Me.</Text2>
+                            <span style={{marginTop: '1rem'}}><SocialIcons color="#999" email="amresh@duck.com" /></span>
+                        </div>
+                    </Animator>
+                </ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={Sticky()}>
+                        <div style={{ display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center", height: "100%" }} >
+                            <Text2 style={{fontSize: '3.25rem'}}>Me.</Text2>
+                            <span style={{marginTop: '1rem'}}><SocialIcons color="#999" email="amresh@duck.com" /></span>
+                        </div>
+                    </Animator>
+                </ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={Sticky()}>
+                        <div style={{ color: '#fff', fontFamily: 'Inter', display: "flex", gap: '4rem', flexDirection: 'column', justifyContent: "center", height: "100vh", width: "100vw", background: 'rgb(57, 146, 255)', paddingLeft: '9rem'}}>
+                            <h1 style={{fontSize: '120px'}}>:)</h1>
+                            <p style={{fontSize: '30px', lineHeight: '40px'}}>Your Project ran into a problem that it couldn't handle. &gt;W&lt;</p>
+                            <p style={{fontSize: '30px', maxWidth: '56rem', lineHeight: '40px' }}>Let me help you! Whether it's a chit chat or discussion over something crucial, I am always available!</p>
+                            <img alt='' src={`${QRCode}`} style={{width: '96px'}} />
+                        </div>
+                    </Animator>
+                </ScrollPage>
+                
+                <ScrollPage></ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={Sticky()}>
+                        <Text2 style={{fontSize: '4rem', fontWeight: '900'}}>That's probably enough for today!<br />Stop scrolling!</Text2>
+                    </Animator>
+                </ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={Sticky()}>
+                        <Text2 style={{fontSize: '4rem', fontWeight: '900'}}>That's probably enough for today!<br />Stop scrolling!</Text2>
+                    </Animator>
+                </ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={Sticky()}>
+                        <Text2 style={{fontSize: '4rem', fontWeight: '900'}}>That's probably enough for today!<br />Stop scrolling!</Text2>
+                    </Animator>
+                </ScrollPage>
+
+                <ScrollPage>
+                </ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={Sticky()}>
+                        <Text2 style={{fontSize: '4rem', fontWeight: '900'}}>Still scrollin'?</Text2>
+                    </Animator>
+                </ScrollPage>
+
+                <ScrollPage>
+                </ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={batch(Sticky(), Fade())}>
+                        
+                        {/* <div ref={ref} style={{width: '100vw', height: '100vh'}}><Text2>{`Header inside viewport ${inView}`}</Text2></div> */}
+                        <div ref={ref} style={{width: '100vw', height: '100vh', background: '#000'}}>
+                            {inView ? 
+                            <video width="100%" height="100%" loop autoPlay>
+                            <source
+                                src={RickRoll}
+                                type="video/mp4"
+                            />
+                            Upgrade your browser &gt;:[
+                            </video> : null }
+                        </div>
+                    </Animator>
+                </ScrollPage>
+                
+                
             </ScrollContainer>
             <GoBack to="/" id="home">← Home</GoBack>
             <ScrollDown>Scroll ↓</ScrollDown>
