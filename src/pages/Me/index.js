@@ -93,389 +93,401 @@ export default function Me() {
             </Helmet>
             <Wrapper>
             <ScrollContainer>
-                <ScrollPage page={0}>
+                <ScrollPage>
                     <Animator animation={batch(Sticky(), Fade(), MoveOut(0, -2000))}>
                         <Text2>Hi.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={1}>
+                <ScrollPage>
                     <Animator animation={batch(StickyIn(), FadeIn(), ZoomIn())}>
                         <Text2>I am Amresh.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={2}>
+                <ScrollPage>
+                    <Animator animation={batch(Sticky(0,0), Fade())}>
+                        <div style={{position: 'absolute', zIndex: -1, background: '#748DA6', height: '100vh', width: '100vw'}}></div>
+                    </Animator>
                     <Animator animation={batch(StickyIn(), Fade(), MoveIn())}>
-                        <Text2>I am a Web Developer,</Text2>
+                        <Text2 style={{color: '#F2D7D9'}}>I am a Web Developer,</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={3}>
+                <ScrollPage>
+                    <Animator animation={batch(Sticky(0,0), Fade())}>
+                        <div style={{position: 'absolute', zIndex: -1, background: '#635666', height: '100vh', width: '100vw'}}></div>
+                    </Animator>
                     <Animator animation={batch(StickyIn(), Fade())}>
-                        <Text2>DevOps Engineer,</Text2>
+                        <Text2 style={{color: '#D3EBCD'}}>DevOps Engineer,</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={4}>
+                <ScrollPage>
+                    <Animator animation={batch(Sticky(0,0), Fade())}>
+                        <div style={{position: 'absolute', zIndex: -1, background: '#576F72', height: '100vh', width: '100vw'}}></div>
+                    </Animator>
                     <Animator animation={batch(StickyIn(), Fade())}>
-                        <Text2>Open Source Enthusiast,</Text2>
+                        <Text2 style={{color: '#F0EBE3'}}>Open Source Enthusiast,</Text2>
                     </Animator>
                 </ScrollPage>
                 
-                <ScrollPage page={5}>
+                <ScrollPage>
+                    <Animator animation={batch(Sticky(0,0), Fade())}>
+                        <div style={{position: 'absolute', zIndex: -1, background: '#E7AB79', height: '100vh', width: '100vw'}}></div>
+                    </Animator>
                     <Animator animation={batch(Sticky(), Fade(), MoveIn())}>
-                        <Text2>and a Student.</Text2>
+                        <Text2 style={{color: '#4C3A51'}}>and a Student.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={6}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={7}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '3rem'}}>Grab something to eat as this is going to be long.</Text2>
                     </Animator>
                 </ScrollPage>
 
                 
-                <ScrollPage page={8}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={9}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '3rem'}}>Keep scrollin'!</Text2>
                     </Animator>
                 </ScrollPage>
                 
-                <ScrollPage page={10}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={11}>
-                    <Animator animation={batch(Fade(), Sticky(), Move())}>
+                <ScrollPage>
+                    <Animator animation={batch(Fade(), Sticky())}>
                         <Text2 style={{fontSize: '3rem'}}>Here's my journey.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={12}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={13}>
+                <ScrollPage>
                     <Animator animation={batch(Sticky(), Fade(), MoveIn())}>
                         <Text2 style={{fontSize: '2rem'}}>I got my first computer 🖥️ in 2011.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={14}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={15}>
+                <ScrollPage>
                     <Animator animation={batch(Sticky(), Fade())}>
                         <Text2 style={{fontSize: '2rem'}}>I was in 4th standard at that time.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={16}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={17}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>I started out with BASIC, QBASIC and Turtle.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={18}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={19}>
+                <ScrollPage>
                     <Animator animation={batch(StickyIn(), FadeIn(), ZoomIn())}>
                         <Text2 style={{fontSize: '2rem'}}>🐢 was awesome!</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={20}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky())}>
                         <Text2 style={{fontSize: '2rem'}}>In 5th standard my dad bought me a dongle.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={21}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>I never knew how the Internet would look like.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={22}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>Till that time I just read about Internet in the books 📚 only.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={23}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={24}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>I plugged it. Opened IE and 💥!</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={25}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={26}>
+                <ScrollPage>
                     <Animator animation={batch(StickyIn(), FadeIn(), ZoomIn())}>
                         <Text2 style={{fontSize: '2rem'}}>The Internet was so awesome! I can literally go anywhere,</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={27}>
+                <ScrollPage>
                     <Animator animation={batch(StickyIn(), Fade(), MoveIn())}>
                         <Text2 style={{fontSize: '2rem'}}>search about any info, chat with friends, and play games.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={28}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={29}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>Transitioning to 6th standard.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={30}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={31}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>I got introduced to HTML <img alt='' style={{width: '32px'}} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />, CSS <img alt='' style={{ width: '32px' }} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" /> and JavaScript <img alt='' style={{width: '32px'}} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={32}>                    
+                <ScrollPage>                    
                 </ScrollPage>
 
-                <ScrollPage page={33}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), StickyIn())}>
                         <Text2 style={{fontSize: '2rem'}}>It was cool!</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={34}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), StickyIn())}>
                         <Text2 style={{fontSize: '1.5rem'}}>I thought I am one step closer to making my own billion $ site like</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={35}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), StickyIn(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>Google xD</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={36}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={37}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), StickyIn())}>
                         <Text2 style={{fontSize: '2rem'}}>In 7th or 8th (can't recall that correctly) I learned more about Python.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={38}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), StickyIn())}>
                         <Text2 style={{fontSize: '2rem'}}>Later in 9th standard I was introduced to C++.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={39}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '2rem'}}>Sadly after 10th, I was not in touch with programming for 2 years, all thnx to</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={40}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={41}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), ZoomOut())}>
                         <Text2 style={{fontSize: '2rem'}}>JEE <img alt='' style={{ width: '32px' }} src="https://cdn3.emoji.gg/emojis/2982-pepecry.png"/></Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={42}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={43}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky())}>
                         <Text2 style={{fontSize: '2rem'}}>I got into IIT Guwahati.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={44}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={45}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveIn())}>
                         <Text2 style={{fontSize: '2rem'}}>When I was preparing for JEE I had the plans to fully devote my time to coding after I enter college.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={46}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={47}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveIn())}>
                         <Text2 style={{fontSize: '2rem'}}>So yeah, in 1st yr I learned NodeJS, React, Express and MongoDB.</Text2>
                     </Animator>
                 </ScrollPage>
                 
-                <ScrollPage page={48}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={49}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '2rem'}}>Made some good friends :)</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={50}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={51}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky())}>
                         <Text2 style={{fontSize: '2rem'}}>Transitioning to 2nd yr.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={52}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={53}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveIn(-200, 0), MoveOut(200, 0))}>
                         <Text2 style={{fontSize: '2rem'}}>Got into our college's Coding Club.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={54}>
+                <ScrollPage>
                 </ScrollPage>
                 
-                <ScrollPage page={55}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky())}>
                         <Text2 style={{fontSize: '2rem'}}>Learned more about Web Frameworks like NextJS.</Text2>
                     </Animator>
                 </ScrollPage>
                 
-                <ScrollPage page={56}>
+                <ScrollPage>
                 </ScrollPage>
                 
-                <ScrollPage page={57}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), ZoomIn(10))}>
                         <Text2 style={{fontSize: '4rem'}}>BTW I forgot to told u.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={58}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={59}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '4rem'}}>I used to love Cloud stuff from way back in 8th stnd.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={60}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '4rem'}}>Playing with Virtual Machines, Linux VMs, Deploying and experimenting with new new stuff.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={61}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={62}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '3.25rem'}}>In the starting of 2nd year I started out with DevOps.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={63}>
+                <ScrollPage>
                 </ScrollPage>
                 
-                <ScrollPage page={64}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '3.25rem'}}>Though I had some knowledge about Docker I brushed <img alt='' style={{width: '2.5rem'}} src="https://images.emojiterra.com/google/noto-emoji/v2.034/128px/1faa5.png" /> it up again.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={65}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={66}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '3.25rem'}}>Learned more about Linux.<br />(I use Arch BTW! <img alt='' style={{width: '3rem'}} src="https://cdn3.emoji.gg/emojis/5498_catJAM.gif" />)</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={67}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={68}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '3.25rem'}}>In 4th Semester I took part in Inter IIT in a Team.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={69}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={70}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky())}>
                         <Text2 style={{fontSize: '3.25rem'}}>We placed 3rd position <img alt='' style={{ width: '3.1rem' }} src="https://cdn3.emoji.gg/emojis/5163-95-crythumbsup.png" />.</Text2>
                     </Animator>
                 </ScrollPage>
                 
-                <ScrollPage page={71}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={72}>
+                <ScrollPage>
                     <Animator animation={batch(Sticky(), Fade())}>
                         <Text2 style={{fontSize: '3.25rem'}}>...</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={73}>
+                <ScrollPage>
                 </ScrollPage>
                 
-                <ScrollPage page={74}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '3.25rem'}}>I also post about Tech on my blog <a style={{ color: '#F9F9F9' }} href="https://fossian.com" target="_blank" without rel="noreferrer">Fossian</a>.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={75}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={76}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
                         <Text2 style={{fontSize: '3.25rem'}}>Recently I started out using Traefik instead of Nginx.</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={77}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={78}>
+                <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), Move())}>
                         <Text2 style={{fontSize: '3.25rem'}}>And this brings us to the present</Text2>
                     </Animator>
                 </ScrollPage>
 
-                <ScrollPage page={79}>
+                <ScrollPage>
                 </ScrollPage>
 
-                <ScrollPage page={78}>
+                <ScrollPage>
                     <Animator animation={batch(Sticky(), FadeIn())}>
                         <div style={{ display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center", height: "100%" }} >
                             <Text2 style={{fontSize: '3.25rem'}}>Me.</Text2>
