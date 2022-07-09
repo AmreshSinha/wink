@@ -10,6 +10,7 @@ import favicon32 from '../../images/favicon-32x32.png'
 import favicon16 from '../../images/favicon-16x16.png'
 import siteManifest from '../../images/site.webmanifest'
 import SocialIcons from '../../components/SocialIcons';
+import meBg1 from '../../images/meBg1.jpg';
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -138,6 +139,18 @@ export default function Me() {
                     </Animator>
                     <Animator animation={batch(Sticky(), Fade(), MoveIn())}>
                         <Text2 style={{color: '#4C3A51'}}>and a Student.</Text2>
+                    </Animator>
+                </ScrollPage>
+
+                <ScrollPage>
+                </ScrollPage>
+
+                <ScrollPage>
+                    <Animator animation={batch(Sticky(0,0), Fade())}>
+                        <div style={{position: 'absolute', zIndex: -1, background: `url(${meBg1}) no-repeat 10% 20%`, filter: 'brightness(75%)', height: '100vh', width: '100vw'}}></div>
+                    </Animator>
+                    <Animator animation={batch(Sticky(), Fade(), MoveIn())}>
+                        <Text2 style={{fontSize: '5rem', color: '#F2D7D9', mixBlendMode: 'difference'}}>I love <span style={{textDecoration: 'none', background: 'linear-gradient(to right, #748DA6, #F2D7D9)', backgroundRepeat: 'repeat-x', backgroundSize: '100% 5px', backgroundPosition: '0 95%'}}>Trekking</span>, <span style={{textDecoration: 'none', background: 'linear-gradient(to right, #F37878, #D9F8C4)', backgroundRepeat: 'repeat-x', backgroundSize: '100% 5px', backgroundPosition: '0 95%'}}>Cycling</span> and <span style={{textDecoration: 'none', background: 'linear-gradient(to right, #DFF6FF, #1363DF)', backgroundRepeat: 'repeat-x', backgroundSize: '100% 5px', backgroundPosition: '0 95%'}}>Swimming</span>.</Text2>
                     </Animator>
                 </ScrollPage>
 
@@ -282,7 +295,7 @@ export default function Me() {
 
                 <ScrollPage>
                     <Animator animation={batch(Fade(), StickyIn(), Move())}>
-                        <Text2 style={{fontSize: '2rem'}}>Google xD</Text2>
+                        <Text2 style={{fontSize: '2rem'}}><span style={{color: '#4285F4'}}>G</span><span style={{color: '#DB4437'}}>o</span><span style={{color: '#F4B400'}}>o</span><span style={{color: '#4285F4'}}>g</span><span style={{color: '#0F9D58'}}>l</span><span style={{color: '#DB4437'}}>e</span> xD</Text2>
                     </Animator>
                 </ScrollPage>
 
