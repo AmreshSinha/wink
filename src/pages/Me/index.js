@@ -593,7 +593,7 @@ export default function Me() {
                         {/* <div ref={ref} style={{width: '100vw', height: '100vh'}}><Text2>{`Header inside viewport ${inView}`}</Text2></div> */}
                         <div ref={ref} style={{width: '100vw', height: '100vh', background: '#000'}}>
                             {inView ? 
-                            <video width="100%" height="100%" loop autoPlay>
+                            <video width="100%" height="100%" loop autoPlay playsInline>
                             <source
                                 src={RickRoll}
                                 type="video/mp4"
