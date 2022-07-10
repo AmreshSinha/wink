@@ -15,9 +15,9 @@ import SocialIcons from '../../components/SocialIcons';
 import meBg1 from '../../images/meBg1.jpg';
 import CloudsBG from '../../images/clouds-png-13378.png';
 import DockerBG from '../../images/ian-taylor-jOqJbvo1P9g-unsplash.jpg';
-import QRCode from '../../images/qr-code.png';
 // import RickRoll from '../../images/Rick-Roll.mp4';
 import RickRoll from '../../components/RickRoll';
+import ErrorWindows from '../../components/ErrorWindows';
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -548,15 +548,10 @@ export default function Me() {
 
                 <ScrollPage>
                     <Animator animation={Sticky()}>
-                        <div style={{ color: '#fff', fontFamily: 'Inter', display: "flex", gap: '4rem', flexDirection: 'column', justifyContent: "center", height: "100vh", width: "100vw", background: 'rgb(57, 146, 255)', paddingLeft: '9rem'}}>
-                            <h1 style={{fontSize: '120px'}}>:)</h1>
-                            <p style={{fontSize: '30px', lineHeight: '40px'}}>Your Project ran into a problem that it couldn't handle. &gt;W&lt;</p>
-                            <p style={{fontSize: '30px', maxWidth: '56rem', lineHeight: '40px' }}>Let me help you! Whether it's a chit chat or discussion over something crucial, I am always available!</p>
-                            <img alt='' src={`${QRCode}`} style={{width: '96px'}} />
-                        </div>
+                        <ErrorWindows />
                     </Animator>
                 </ScrollPage>
-                
+
                 <ScrollPage></ScrollPage>
 
                 <ScrollPage>
@@ -612,8 +607,6 @@ const Wrapper = styled.div`
     * {
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
     }
-    /* width: 100%; */
-    /* height: 5000vh; */
     background: #111;
 `
 
