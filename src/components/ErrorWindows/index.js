@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     background: rgb(57, 146, 255);
     padding-left: 9rem;
     @media screen and (max-width: 480px) {
-        gap: 3.25rem;
+        gap: 3rem;
     }
     h1 {
         font-family: 'Inter', sans-serif;
