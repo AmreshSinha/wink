@@ -494,7 +494,7 @@ export default function Me() {
                 
                 <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
-                        <Text2 style={{fontSize: '3.25rem'}}>I also post about Tech on my blog <a style={{ color: '#F9F9F9' }} href="https://fossian.com" target="_blank" without rel="noreferrer">Fossian</a>.</Text2>
+                        <Text2 style={{fontSize: '3.25rem'}}>Recently I restarted my blog <a style={{ color: '#F9F9F9' }} href="https://fossian.com" target="_blank" without rel="noreferrer">Fossian</a>.</Text2>
                     </Animator>
                 </ScrollPage>
 
@@ -503,7 +503,7 @@ export default function Me() {
 
                 <ScrollPage>
                     <Animator animation={batch(Fade(), Sticky(), MoveOut())}>
-                        <Text2 style={{fontSize: '3.25rem'}}>Recently I started out using Traefik instead of Nginx.</Text2>
+                        <Text2 style={{fontSize: '3.25rem'}}>and started out using Traefik (RiP Nginx).</Text2>
                     </Animator>
                 </ScrollPage>
 
