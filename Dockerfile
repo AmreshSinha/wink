@@ -1,12 +1,13 @@
-FROM node:16-alpine as build
-# COPY package.json and package-lock.json
+FROM node:18-alpine as build
+# COPY package.json and yarn.lock
 COPY package*.json ./
+COPY yarn.lock ./
 # Install dependencies
-RUN npm i
+RUN yarn install
 # Copy all the files
 COPY . .
 # Build
-RUN npm run build
+RUN yarn build
 # Using nginx for Production image
 FROM nginx:1.23
 # Copying our nginx configuration file
