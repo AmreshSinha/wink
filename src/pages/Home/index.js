@@ -172,7 +172,7 @@ export default function Home() {
             <FooterWrapper>
                 {!mobile ? <SocialIcons /> : <SocialIcons email="amresh@duck.com" />}
                 {/* email={'amresh@duck.com'} */}
-                <Year>20<br/>22</Year>
+                <Year>20<br/>23</Year>
             </FooterWrapper>
             {!tablet ? <Cursor /> : null}
         </HeroWrapper>
