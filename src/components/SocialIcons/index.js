@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { FiAtSign, FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
 
-export default function SocialIcons({ email, color }) {
+export default function SocialIcons({ email, color, pageType }) {
     return (
-        <SocialIconsContainer>
+        <SocialIconsContainer pageType={pageType}>
             {email ? 
             <a href={`mailto:${email}`}>
                 <FiAtSign color={color ? `${color}` : null} />
@@ -25,7 +25,7 @@ export default function SocialIcons({ email, color }) {
 const SocialIconsContainer = styled.div`
     flex: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: ${props => props.pageType === "Works" ? "column" : "row"};
     justify-content: center;
     align-items: center;
     gap: 1em;
