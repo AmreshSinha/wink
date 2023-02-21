@@ -102,7 +102,7 @@ export default function Me() {
                 <meta name="twitter:description" content="Amresh Sinha's personal website" />
                 <meta name="twitter:image" content="images/bgDesktop2.jpg" />
                 <meta name="twitter:image:alt" content="Amresh Sinha's personal website" />
-                <meta name="twitter:site" content="@amreshsinha" />
+                <meta name="twitter:site" content="@aps_codes" />
                 <meta name="twitter:creator" content="@aps_codes" />
             </Helmet>
             <Wrapper>
