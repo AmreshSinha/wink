@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export default function ShowMoreButton() {
     return (
-        <ButtonWrapper to="/">SEE MY WORK</ButtonWrapper>
+        <ButtonWrapper to="/works">SEE MY WORK</ButtonWrapper>
     )
 }
 
