@@ -13,6 +13,7 @@ import appleIcon from '../../images/apple-touch-icon.png'
 import favicon32 from '../../images/favicon-32x32.png'
 import favicon16 from '../../images/favicon-16x16.png'
 import siteManifest from '../../images/site.webmanifest'
+import {a, useChain, useSpring, useTrail, useTransition, useSpringRef } from "@react-spring/web";
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -116,6 +117,81 @@ export default function Home() {
         moveBackground();
     }, [])
 
+    const backgroundRef = useSpringRef();
+    const backgroundAnim = useSpring({
+        ref: backgroundRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+    })
+    const navRef = useSpringRef();
+    const navReveal = useSpring({
+        ref: navRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: -20, y: -200},
+        to: { opacity: 1, x: 0, y: 0},
+    })
+    const wtRef = useSpringRef();
+    const wtReveal = useSpring({
+        ref: wtRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: 20},
+        to: { opacity: 1, x: 0},
+    })
+    const worksTitleRef = useSpringRef();
+    const worksTitleReveal = useTrail(5, {
+        ref: worksTitleRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: 20, height: 0 },
+        to: { opacity: 1, x: 0, height: 110 },
+    })
+    const worksTitleList = "Works".split("")
+    const descLine1Ref = useSpringRef();    
+    const descLine2Ref = useSpringRef();    
+    const descLine3Ref = useSpringRef();    
+    const descLine4Ref = useSpringRef();    
+    const descLine1Anim = useTrail(2, {
+        ref: descLine1Ref,
+        config: { mass: 5, tension: 2000, friction: 100 },
+        from: { opacity: 0, x: 20, height: 0 },
+        to: { opacity: 1, x: 0, height: 110 },
+    })
+    const descLine1List = "Hi, I'm".split(" ")
+    const descLine2Anim = useTrail(2, {
+        ref: descLine2Ref,
+        config: { mass: 5, tension: 2000, friction: 100 },
+        from: { opacity: 0, x: 20, height: 0 },
+        to: { opacity: 1, x: 0, height: 110 },
+    })
+    const descLine2List = "Amresh Sinha,".split(" ")
+    const descLine3Anim = useSpring({
+        ref: descLine3Ref,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: 20, height: 0 },
+        to: { opacity: 1, x: 0, height: 110 },
+    })
+    const descLine4Anim = useSpring({
+        ref: descLine4Ref,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: -20 },
+        to: { opacity: 1, x: 0 },
+    })
+    const workButtonRef = useSpringRef();
+    const workButtonAnim = useSpring({
+        ref: workButtonRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: -20 },
+        to: { opacity: 1, x: 0 },
+    })
+    const socialIconsRef = useSpringRef();
+    const socialIconsAnim = useSpring({
+        ref: socialIconsRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: -20 },
+        to: { opacity: 1, x: 0 }
+    })
+    useChain([navRef, wtRef, worksTitleRef, backgroundRef, descLine1Ref, descLine2Ref, descLine3Ref, descLine4Ref, workButtonRef, socialIconsRef], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 200)
+
     return (
         <>
         <Helmet>
@@ -156,23 +232,25 @@ export default function Home() {
             <meta name="twitter:creator" content="@aps_codes" />
         </Helmet>
         <HeroWrapper>
-            <BGdiv ref={movingBackground} />
-            <DesktopNav />
+            <BGdiv ref={movingBackground} style={backgroundAnim} />
+            <DesktopNav style={navReveal} />
             <MainAreaWrapper>
                 <IntroWrapper>
-                    <h1>Hi, I'm<br />Amresh Sinha,<br />a <div style={{display: "inline"}} ref={elParent}><span ref={el} id="cursorHover">developer</span></div></h1>
-                    {!mobile ? <h2>I make immersive software that moves<br />people.</h2> : <h2>I make immersive software<br />that moves people.</h2>}
-                    <ShowMoreButton />
+                    <h1>{descLine1Anim.map(({...style}, index) => (<a.span style={style} key={index}>{descLine1List[index]} </a.span>))}<br />{descLine2Anim.map(({...style}, index) => (<a.span style={style} key={index}>{descLine2List[index]} </a.span>))}<br /><a.span style={descLine3Anim}>a <div style={{display: "inline"}} ref={elParent}><span ref={el} id="cursorHover">developer</span></div></a.span></h1>
+                    {!mobile ? <a.h2 style={descLine4Anim}>I make immersive software that moves<br />people.</a.h2> : <a.h2>I make immersive software<br />that moves people.</a.h2>}
+                    <ShowMoreButton style={workButtonAnim} />
                 </IntroWrapper>
-                <WorkAndEmailWrapper>
-                    <WorkLink to="/works">Works</WorkLink>
+                <WorkAndEmailWrapper style={wtReveal}>
+                    <WorkLink to="/works">
+                        {worksTitleReveal.map(({...style}, index) => (<a.span style={style} key={index}>{worksTitleList[index]}</a.span>))}
+                    </WorkLink>
                     <TriangleDiv><a href="mailto:amresh@duck.com">amresh@duck.com</a></TriangleDiv>
                 </WorkAndEmailWrapper>
             </MainAreaWrapper>
             <FooterWrapper>
-                {!mobile ? <SocialIcons /> : <SocialIcons email="amresh@duck.com" />}
+                {!mobile ? <SocialIcons style={socialIconsAnim} /> : <SocialIcons style={socialIconsAnim} email="amresh@duck.com" />}
                 {/* email={'amresh@duck.com'} */}
-                <Year>20<br/>23</Year>
+                <Year style={socialIconsAnim}>20<br/>23</Year>
             </FooterWrapper>
             {!tablet ? <Cursor /> : null}
         </HeroWrapper>
@@ -185,6 +263,8 @@ const HeroWrapper = styled.div`
     height: 100vh;
     overflow: hidden;
     position: relative;
+    background-color: #000;
+    z-index: 0;
     /* background-image: url(${bgDesktop});
     background-position: top -10vh left;
     @media screen and (max-width: 1200px) {
@@ -199,14 +279,13 @@ const HeroWrapper = styled.div`
     justify-content: space-between;
 `
 
-const BGdiv = styled.div`
+const BGdiv = styled(a.div)`
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    
     background: url(${bgDesktop}) no-repeat center center;
     background-position: top -10vh left;
     background-size: cover;
@@ -256,7 +335,7 @@ const IntroWrapper = styled.div`
     }
 `
 
-const WorkAndEmailWrapper = styled.div`
+const WorkAndEmailWrapper = styled(a.div)`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -345,7 +424,7 @@ const FooterWrapper = styled.div`
     margin-bottom: 1em;
 `
 
-const Year = styled.span`
+const Year = styled(a.span)`
     font-size: 32px;
     font-weight: 700;
     line-height: 75%;

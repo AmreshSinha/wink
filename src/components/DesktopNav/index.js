@@ -1,10 +1,16 @@
 import styled from "styled-components"
 import Logo from "../Logo"
 import { Link } from "react-router-dom"
+import { a, useSpring } from "@react-spring/web"
 
-export default function DesktopNav() {
+export default function DesktopNav({ style }) {
+    // const navReveal = useSpring({
+    //     config: { mass: 5, tension: 2000, friction: 200 },
+    //     from: { opacity: 0, x: -20, y: -200},
+    //     to: { opacity: 1, x: 0, y: 0},
+    // })
     return (
-        <NavWrapper>
+        <NavWrapper style={style}>
             <Link to="/" style={{textDecoration: 'none', color: 'black'}}><Logo /></Link>
             <Links>
                 <NavLink to="/" id="home"><span>01.</span> Home</NavLink>
@@ -16,7 +22,7 @@ export default function DesktopNav() {
     )
 }
 
-const NavWrapper = styled.nav`
+const NavWrapper = styled(a.nav)`
     display: flex;
     flex-direction: row;
     justify-content: space-between;

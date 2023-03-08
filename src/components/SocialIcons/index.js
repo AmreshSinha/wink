@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { FiAtSign, FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
+import { a, useSpring } from "@react-spring/web";
 
-export default function SocialIcons({ email, color, pageType }) {
+export default function SocialIcons({ email, color, pagetype, style }) {
+    // const socialIconsAnim = useSpring({
+    //     from: { opacity: 0, x: 100},
+    //     to: { opacity: 1, x: 0}
+    // })
     return (
-        <SocialIconsContainer pageType={pageType}>
+        <SocialIconsContainer style={style} pagetype={pagetype}>
             {email ? 
             <a href={`mailto:${email}`}>
                 <FiAtSign color={color ? `${color}` : null} />
@@ -22,10 +27,10 @@ export default function SocialIcons({ email, color, pageType }) {
     )
 }
 
-const SocialIconsContainer = styled.div`
+const SocialIconsContainer = styled(a.div)`
     flex: 1;
     display: flex;
-    flex-direction: ${props => props.pageType === "Works" ? "column" : "row"};
+    flex-direction: ${props => props.pagetype === "Works" ? "column" : "row"};
     justify-content: center;
     align-items: center;
     gap: 1em;

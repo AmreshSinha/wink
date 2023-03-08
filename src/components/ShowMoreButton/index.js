@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { a } from "@react-spring/web"
 
-export default function ShowMoreButton() {
+export default function ShowMoreButton({ style }) {
     return (
-        <ButtonWrapper to="/works">SEE MY WORK</ButtonWrapper>
+        <ButtonWrapper style={style} href="/works">SEE MY WORK</ButtonWrapper>
     )
 }
 
-const ButtonWrapper = styled(Link)`
+const ButtonWrapper = styled(a.a)`
     /* display: flex; */
     text-decoration: none;
     background: linear-gradient(95.44deg, #F27121 4.35%, #E94057 70.16%, #8A2387 133.82%);
