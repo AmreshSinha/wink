@@ -13,7 +13,7 @@ import appleIcon from '../../images/apple-touch-icon.png'
 import favicon32 from '../../images/favicon-32x32.png'
 import favicon16 from '../../images/favicon-16x16.png'
 import siteManifest from '../../images/site.webmanifest'
-import {a, useChain, useSpring, useTrail, useTransition, useSpringRef } from "@react-spring/web";
+import {a, useChain, useSpring, useTrail, useSpringRef } from "@react-spring/web";
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -115,7 +115,7 @@ export default function Home() {
         });
           
         moveBackground();
-    }, [])
+    }, [windowSize.innerHeight, windowSize.innerWidth])
 
     const backgroundRef = useSpringRef();
     const backgroundAnim = useSpring({
