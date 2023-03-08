@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import DesktopNav from "../../components/DesktopNav"
 import favicon from '../../images/favicon.ico'
 import appleIcon from '../../images/apple-touch-icon.png'
@@ -10,6 +10,7 @@ import favicon16 from '../../images/favicon-16x16.png'
 import siteManifest from '../../images/site.webmanifest'
 import Cursor from "../../components/Cursor";
 import SocialIcons from "../../components/SocialIcons";
+import { useTrail, a, useChain, useSpring, useSpringRef, useTransition } from '@react-spring/web'
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -43,6 +44,44 @@ export default function Works() {
             setTablet(false)
         }
     }, [windowSize])
+
+    // React Spring
+    const navRef = useSpringRef()
+    const navReveal = useSpring({
+        ref: navRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: -20, y: -200},
+        to: { opacity: 1, x: 0, y: 0},
+    })
+    const trailsRef = useSpringRef()
+    const trails = useTrail(5, {
+        ref: trailsRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: 20, height: 0},
+        to: { opacity: 1, x: 0, height: 110 },
+    })
+    const worksTitleList = "Works".split("")
+    const worksTitleWrapperPropsRef = useSpringRef()
+    const worksTitleWrapperProps = useTransition([1], {
+        ref: worksTitleWrapperPropsRef,
+        from: { opacity: 1, y: 0 },
+        enter: { opacity: 0.25, y: -10, position: "fixed" },
+        leave: { opacity: 0.25 }
+    })
+    const socialIconsRef = useSpringRef();
+    const socialIconsAnim = useSpring({
+        ref: socialIconsRef,
+        from: { opacity: 0, x: 100},
+        to: { opacity: 1, x: 0}
+    })
+    const yearRef = useSpringRef();
+    const yearAnim = useSpring({
+        ref: yearRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: 20, y: 200},
+        to: { opacity: 1, x: 0, y: 0},
+    })
+    useChain([navRef, socialIconsRef, trailsRef, worksTitleWrapperPropsRef, yearRef], [0, 1, 2, 3, 4], 100)
     return (
         <>
         <Helmet>
@@ -82,17 +121,21 @@ export default function Works() {
             <meta name="twitter:site" content="@aps_codes" />
             <meta name="twitter:creator" content="@aps_codes" />
         </Helmet>
+        <GlobalStyle />
         <WorksWrapper>
-            <DesktopNav />
+            <DesktopNav style={navReveal} />
+                {worksTitleWrapperProps((style, item) => (
+                <WorksTitleWrapper style={style}>
+                {trails.map(({ height, ...style }, index) => (
+                    <WorksTitle style={style}>{worksTitleList[index]}</WorksTitle>
+                    ))}
+                </WorksTitleWrapper>))}
             <MainWrapper>
-                <div>
-
-                </div>
             </MainWrapper>
             <FooterWrapper>
-                {!mobile ? <SocialIcons pageType="Works" /> : <SocialIcons email="amresh@duck.com" />}
+                {!mobile ? <SocialIcons style={socialIconsAnim} pagetype="Works" /> : <SocialIcons style={socialIconsAnim} email="amresh@duck.com" />}
                 {/* email={'amresh@duck.com'} */}
-                <Year>20<br/>23</Year>
+                <Year style={yearAnim}>20<br/>23</Year>
             </FooterWrapper>
             {!tablet ? <Cursor /> : null}
         </WorksWrapper>
@@ -100,19 +143,71 @@ export default function Works() {
     )
 }
 
+const GlobalStyle = createGlobalStyle`
+    *::-webkit-scrollbar {
+        width: 8px;
+        background: #000;
+    }
+    *::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px grey;
+        border-radius: 5px;
+    }
+    *::-webkit-scrollbar-thumb {
+        background: darkblue;
+        border-radius: 15px;
+        height: 2px;
+    }
+    *::-webkit-scrollbar-thumb:hover {
+        background: lightblue;
+        max-height: 10px;
+    }
+    *::-webkit-scrollbar-thumb:active {
+        display: block;
+        background-size: 10px;
+    }
+    *::-webkit-scrollbar-button:vertical:end:increment {
+        display: block;
+        background-size: 10px;
+    }
+    body {
+        overflow-x: hidden;
+    }
+`
 const WorksWrapper = styled.div`
     width: 100%;
     min-height: 100vh;
     background-color: #000;
-    padding-top: 52px;
     nav {
-        margin-top: 0;
+        padding-top: 52px;
+        margin-top: unset;
     }
 `
 
 const MainWrapper = styled.div`
     width: 100%;
     
+`
+
+const WorksTitleWrapper = styled(a.div)`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+`
+
+const WorksTitle = styled(a.span)`
+    position: relative;
+    left: -50%;
+    top: -50%;
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: system-ui;
+    color: #fff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `
 
 const FooterWrapper = styled.div`
@@ -127,7 +222,7 @@ const FooterWrapper = styled.div`
     height: 100%;
 `
 
-const Year = styled.span`
+const Year = styled(a.span)`
     font-size: 32px;
     font-weight: 700;
     line-height: 75%;
