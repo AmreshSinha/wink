@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Logo from "../Logo"
 import { Link } from "react-router-dom"
-import { a, useSpring } from "@react-spring/web"
+import { a } from "@react-spring/web"
 
 export default function DesktopNav({ style }) {
     // const navReveal = useSpring({
