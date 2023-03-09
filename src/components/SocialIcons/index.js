@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FiAtSign, FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
-import { a, useSpring } from "@react-spring/web";
+import { a } from "@react-spring/web";
 
 export default function SocialIcons({ email, color, pagetype, style }) {
     // const socialIconsAnim = useSpring({
@@ -14,13 +14,13 @@ export default function SocialIcons({ email, color, pagetype, style }) {
                 <FiAtSign color={color ? `${color}` : null} />
             </a> : null
             }
-            <a href="https://github.com/AmreshSinha">
+            <a href="https://github.com/AmreshSinha" target="_blank" rel="noreferrer">
                 <FiGithub color={color ? `${color}` : null} />
             </a>
-            <a href="https://twitter.com/aps_codes">
+            <a href="https://twitter.com/aps_codes" target="_blank" rel="noreferrer">
                 <FiTwitter color={color ? `${color}` : null} />
             </a>
-            <a href="https://www.linkedin.com/in/amresh-sinha/">
+            <a href="https://www.linkedin.com/in/amresh-sinha/" target="_blank" rel="noreferrer">
                 <FiLinkedin color={color ? `${color}` : null} />
             </a>
         </SocialIconsContainer>
