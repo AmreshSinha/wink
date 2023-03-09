@@ -4,11 +4,6 @@ import { Link } from "react-router-dom"
 import { a } from "@react-spring/web"
 
 export default function DesktopNav({ style }) {
-    // const navReveal = useSpring({
-    //     config: { mass: 5, tension: 2000, friction: 200 },
-    //     from: { opacity: 0, x: -20, y: -200},
-    //     to: { opacity: 1, x: 0, y: 0},
-    // })
     return (
         <NavWrapper style={style}>
             <Link to="/" style={{textDecoration: 'none', color: 'black'}}><Logo /></Link>
