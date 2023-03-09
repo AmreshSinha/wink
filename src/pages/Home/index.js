@@ -237,7 +237,7 @@ export default function Home() {
             <MainAreaWrapper>
                 <IntroWrapper>
                     <h1>{descLine1Anim.map(({...style}, index) => (<a.span style={style} key={index}>{descLine1List[index]} </a.span>))}<br />{descLine2Anim.map(({...style}, index) => (<a.span style={style} key={index}>{descLine2List[index]} </a.span>))}<br /><a.span style={descLine3Anim}>a <div style={{display: "inline"}} ref={elParent}><span ref={el} id="cursorHover">developer</span></div></a.span></h1>
-                    {!mobile ? <a.h2 style={descLine4Anim}>I make immersive software that moves<br />people.</a.h2> : <a.h2>I make immersive software<br />that moves people.</a.h2>}
+                    {!mobile ? <a.h2 style={descLine4Anim}>I make immersive software that moves<br />people.</a.h2> : <a.h2 style={descLine4Anim}>I make immersive software<br />that moves people.</a.h2>}
                     <ShowMoreButton style={workButtonAnim} />
                 </IntroWrapper>
                 <WorkAndEmailWrapper style={wtReveal}>
