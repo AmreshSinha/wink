@@ -3,10 +3,6 @@ import { FiAtSign, FiGithub, FiTwitter, FiLinkedin } from "react-icons/fi";
 import { a } from "@react-spring/web";
 
 export default function SocialIcons({ email, color, pagetype, style }) {
-    // const socialIconsAnim = useSpring({
-    //     from: { opacity: 0, x: 100},
-    //     to: { opacity: 1, x: 0}
-    // })
     return (
         <SocialIconsContainer style={style} pagetype={pagetype}>
             {email ? 
