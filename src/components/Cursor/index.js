@@ -24,7 +24,7 @@ export default function Cursor() {
         document.addEventListener('mouseenter', mouseEnterEvent);
         document.addEventListener('mouseleave', mouseLeaveEvent);
         document.addEventListener('mouseover', (e) => {
-          if (e.target.closest('a') || e.target.closest('svg') || e.target.closest('span')) {
+          if (e.target.closest('a') || e.target.closest('svg') || e.target.closest('span') || e.target.closest('input')) {
             cursorEnlarged.current = true;
             toggleCursorSize();
           } else {
