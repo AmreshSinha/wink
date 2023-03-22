@@ -172,9 +172,8 @@ export default function Works() {
                     </QuotesWrapper>
             </MainWrapper>
             <FooterWrapper>
-                {!mobile ? <SocialIcons style={socialIconsAnim} pagetype="Works" /> : <SocialIcons style={socialIconsAnim} email="amresh@duck.com" />}
-                {/* email={'amresh@duck.com'} */}
-                <Year style={yearAnim}>20<br/>23</Year>
+                {!mobile ? <><SocialIcons style={socialIconsAnim} pagetype="Works" />
+                <Year style={yearAnim}>20<br/>23</Year></> : null}
             </FooterWrapper>
             {!tablet ? <Cursor /> : null}
         </WorksWrapper>
