@@ -11,6 +11,8 @@ import siteManifest from '../../images/site.webmanifest'
 import Cursor from "../../components/Cursor";
 import SocialIcons from "../../components/SocialIcons";
 import { useTrail, a, useChain, useSpring, useSpringRef, useTransition } from '@react-spring/web'
+import Search from "../../components/Search";
+import winkConfig from "../../config.json";
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -45,6 +47,18 @@ export default function Works() {
         }
     }, [windowSize])
 
+    // Quotes Call
+    const [quote, setQuote] = useState(null)
+    const fetchQuote = async () => {
+        setQuote(null)
+        const response = await fetch("https://api.quotable.io/random?maxLength=50")
+        const data = await response.json()
+        setQuote(data)
+    }
+    useEffect(() => {
+        fetchQuote()
+    }, [])
+    
     // React Spring
     const navRef = useSpringRef()
     const navReveal = useSpring({
@@ -64,9 +78,16 @@ export default function Works() {
     const worksTitleWrapperPropsRef = useSpringRef()
     const worksTitleWrapperProps = useTransition([1], {
         ref: worksTitleWrapperPropsRef,
-        from: { opacity: 1, y: 0 },
-        enter: { opacity: 0.25, y: -10, position: "fixed" },
-        leave: { opacity: 0.25 }
+        from: { opacity: 0.5, y: 0 },
+        enter: { opacity: 1, y: -10 },
+        leave: { opacity: 1 }
+    })
+    const dividerLineRef = useSpringRef()
+    const dividerLineProps = useSpring({
+        ref: dividerLineRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, width: 0},
+        to: { opacity: 1, width: 80},
     })
     const socialIconsRef = useSpringRef();
     const socialIconsAnim = useSpring({
@@ -81,7 +102,7 @@ export default function Works() {
         from: { opacity: 0, x: 20, y: 200},
         to: { opacity: 1, x: 0, y: 0},
     })
-    useChain([navRef, socialIconsRef, trailsRef, worksTitleWrapperPropsRef, yearRef], [0, 1, 2, 3, 4], 100)
+    useChain([navRef, socialIconsRef, trailsRef, worksTitleWrapperPropsRef, dividerLineRef, yearRef], [0, 1, 2, 3, 4, 5], 100)
     return (
         <>
         <Helmet>
@@ -124,13 +145,31 @@ export default function Works() {
         <GlobalStyle />
         <WorksWrapper>
             <DesktopNav style={navReveal} />
-                {worksTitleWrapperProps((style, item) => (
-                <WorksTitleWrapper style={style}>
-                {trails.map(({ height, ...style }, index) => (
-                    <WorksTitle style={style}>{worksTitleList[index]}</WorksTitle>
-                    ))}
-                </WorksTitleWrapper>))}
             <MainWrapper>
+                <div style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
+                    <WorksTitleWrapper>
+                        {worksTitleWrapperProps((style, item) => (
+                            <a.div style={style}>
+                        <TopDividerLine style={dividerLineProps} />
+                        {trails.map(({ height, ...style }, index) => (
+                            <WorksTitle style={style}>{worksTitleList[index]}</WorksTitle>
+                            ))}
+                        </a.div>))}
+                    </WorksTitleWrapper>
+                    <CountWrapper>
+                        <p>{winkConfig.length}/{winkConfig.length}</p>
+                    </CountWrapper>
+                </div>
+                <SearchWrapper>
+                    <h3>FILTER</h3>
+                    <label>SEARCH</label>
+                    <Search />
+                </SearchWrapper>
+                <QuotesWrapper>
+                        {quote ? <span>Quote : [<br />&nbsp;&nbsp;&nbsp;&nbsp;{quote.content}<br />&nbsp;&nbsp;&nbsp;&nbsp;~ {quote.author}<br />] ,<br />Reload : [ <a onClick={fetchQuote}>Yes</a> , No ]</span>
+                            : <span>Loading...</span>
+                        }
+                    </QuotesWrapper>
             </MainWrapper>
             <FooterWrapper>
                 {!mobile ? <SocialIcons style={socialIconsAnim} pagetype="Works" /> : <SocialIcons style={socialIconsAnim} email="amresh@duck.com" />}
@@ -174,8 +213,10 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 const WorksWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #000;
     nav {
         padding-top: 52px;
@@ -185,19 +226,184 @@ const WorksWrapper = styled.div`
 
 const MainWrapper = styled.div`
     width: 100%;
-    
+    height: 100%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    justify-content: space-between;
 `
 
-const WorksTitleWrapper = styled(a.div)`
+const CountWrapper = styled.div`
+    color: #fff;
+    line-height: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    p {
+        ::before {
+            content: '~ ';
+            line-height: 14px;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 0;
+            background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+    }
+`
+
+const SearchWrapper = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    color: #fff;
+    margin-top: -6rem;
+    h3 {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    label {
+        line-height: 14px;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 0;
+    }
+`
+
+const QuotesWrapper = styled.div`
+    box-sizing: content-box;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    color: #fff;
+    width: 25%;
+    min-height: 102px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    ::before {
+        position: absolute;
+        top: -2rem;
+        content: "“ ";
+        font-size: 2rem;
+        font-weight: 900;
+        background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+    ::after {
+        position: absolute;
+        bottom: -1rem;
+        content: "”";
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 2rem;
+        font-weight: 900;
+        background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+    /* ::before {
+        content: "";
+        top: 0;
+        right: 0;
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        border-top: 1pt solid  #8f8f90;
+        border-right: 1pt solid #8f8f90;
+        transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+    }
+    ::after {
+        content: "";
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        border-top: 1pt solid #8f8f90;
+        border-left: 1pt solid #8f8f90;
+        transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+    }
+    :hover {
+        ::before {
+            width: 15px;
+            height: 15px;
+        }
+        ::after {
+            width: 15px;
+            height: 15px;
+        }
+    } */
+    span {
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        text-transform: uppercase;
+        font-family: system-ui;
+        letter-spacing: 0;
+        line-height: 14px;
+        font-size: 12px;
+        font-weight: 400;
+        padding-left: 1rem;
+        /* ::before {
+            content: "";
+            bottom: 0;
+            right: 0;
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            border-right: 1pt solid  #8f8f90;
+            border-bottom: 1pt solid #8f8f90;
+            transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        ::after {
+            content: "";
+            bottom: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            border-bottom: 1pt solid #8f8f90;
+            border-left: 1pt solid #8f8f90;
+            transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        :hover {
+            ::before {
+                width: 15px;
+                height: 15px;
+            }
+            ::after {
+                width: 15px;
+                height: 15px;
+            }
+        } */
+    }
+`
+
+const WorksTitleWrapper = styled.div`
+    width: fit-content;
+    height: fit-content;
+`
+
+const TopDividerLine = styled(a.div)`
     position: absolute;
-    left: 50%;
-    top: 50%;
+    width: 5rem;
+    height: 4px;
+    background: rgb(233,64,87);
+    background: linear-gradient(to right, #8a2387, #e94057, #f27121);
 `
 
 const WorksTitle = styled(a.span)`
-    position: relative;
-    left: -50%;
-    top: -50%;
     font-size: 5rem;
     font-weight: 700;
     font-family: system-ui;

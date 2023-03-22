@@ -1,0 +1,24 @@
+[
+    {
+        "id": "testId",
+        "title": "Test Title",
+        "description": "Test Description",
+        "image": "https://i.imgur.com/1Q3ZQ4r.png",
+        "link": "https://testlink.com",
+        "category": "Development",
+        "year": 2023,
+        "industry": "Personal Project",
+        "tools": ["React", "Redux", "Node", "Express", "MongoDB", "Mongoose", "Bootstrap", "HTML", "CSS", "JavaScript", "Git", "GitHub", "Heroku", "Netlify"]
+    },
+    {
+        "id": "testId2",
+        "title": "Test Title 2",
+        "description": "Test Description 2",
+        "image": "https://i.imgur.com/1Q3ZQ4r.png",
+        "link": "https://testlink.com",
+        "category": "Development",
+        "year": 2023,
+        "industry": "Personal Project",
+        "tools": ["React", "Redux", "Node", "Express", "MongoDB", "Mongoose", "Bootstrap", "HTML", "CSS", "JavaScript", "Git", "GitHub", "Heroku", "Netlify"]
+    }
+]
