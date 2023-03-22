@@ -13,6 +13,7 @@ import SocialIcons from "../../components/SocialIcons";
 import { useTrail, a, useChain, useSpring, useSpringRef, useTransition } from '@react-spring/web'
 import Search from "../../components/Search";
 import winkConfig from "../../config.json";
+import WorksCard from "../../components/WorksCard";
 
 function getWindowSize() {
     const {innerWidth, innerHeight} = window;
@@ -146,30 +147,37 @@ export default function Works() {
         <WorksWrapper>
             <DesktopNav style={navReveal} />
             <MainWrapper>
-                <div id="MainId" style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
-                    <WorksTitleWrapper>
-                        {worksTitleWrapperProps((style, item) => (
-                            <a.div style={style}>
-                        <TopDividerLine style={dividerLineProps} />
-                        {trails.map(({ height, ...style }, index) => (
-                            <WorksTitle style={style}>{worksTitleList[index]}</WorksTitle>
-                            ))}
-                        </a.div>))}
-                    </WorksTitleWrapper>
-                    <CountWrapper>
-                        <p>{winkConfig.length}/{winkConfig.length}</p>
-                    </CountWrapper>
-                </div>
-                <SearchWrapper>
-                    <h3>FILTER</h3>
-                    <label>SEARCH</label>
-                    <Search />
-                </SearchWrapper>
-                <QuotesWrapper>
-                        {quote ? <span>Quote : [<br />&nbsp;&nbsp;&nbsp;&nbsp;{quote.content}<br />&nbsp;&nbsp;&nbsp;&nbsp;~ {quote.author}<br />] ,<br />Reload : [ <a onClick={fetchQuote}>Yes</a> , No ]</span>
-                            : <span>Loading...</span>
-                        }
+                <LeftPart>
+                    <div id="MainId" style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
+                        <WorksTitleWrapper>
+                            {worksTitleWrapperProps((style, item) => (
+                                <a.div style={style}>
+                            <TopDividerLine style={dividerLineProps} />
+                            {trails.map(({ height, ...style }, index) => (
+                                <WorksTitle style={style}>{worksTitleList[index]}</WorksTitle>
+                                ))}
+                            </a.div>))}
+                        </WorksTitleWrapper>
+                        <CountWrapper>
+                            <p>{winkConfig.length}/{winkConfig.length}</p>
+                        </CountWrapper>
+                    </div>
+                    <SearchWrapper>
+                        <h3>FILTER</h3>
+                        <label>SEARCH</label>
+                        <Search />
+                    </SearchWrapper>
+                    <QuotesWrapper>
+                            {quote ? <span>Quote : [<br />&nbsp;&nbsp;&nbsp;&nbsp;{quote.content}<br />&nbsp;&nbsp;&nbsp;&nbsp;~ {quote.author}<br />] ,<br />Reload : [ <a onClick={fetchQuote}>Yes</a> , No ]</span>
+                                : <span>Loading...</span>
+                            }
                     </QuotesWrapper>
+                </LeftPart>
+                <RightPart>
+                    {winkConfig.map((item, index) => (
+                        <WorksCard key={index} item={item} index={index} />
+                    ))}
+                </RightPart>
             </MainWrapper>
             <FooterWrapper>
                 {!mobile ? <><SocialIcons style={socialIconsAnim} pagetype="Works" />
@@ -183,7 +191,7 @@ export default function Works() {
 
 const GlobalStyle = createGlobalStyle`
     *::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
         background: #000;
     }
     *::-webkit-scrollbar-track {
@@ -191,7 +199,7 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 5px;
     }
     *::-webkit-scrollbar-thumb {
-        background: darkblue;
+        background: darkcyan;
         border-radius: 15px;
         height: 2px;
     }
@@ -226,11 +234,32 @@ const WorksWrapper = styled.div`
 const MainWrapper = styled.div`
     width: 100%;
     height: 100%;
-    padding: 4rem;
+    display: grid;
+    grid-template-columns: 50vw auto;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    /* padding: 4rem; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* gap: 1rem; */
+    /* justify-content: space-between; */
+    /* @media screen and (max-width: 767px) {
+        padding-left: 34px;
+        justify-content: flex-start;
+        gap: 6rem;
+        #MainId {
+            gap: 0 !important;
+        }
+    } */
+`
+
+const LeftPart = styled.div`
+    width: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
-    /* gap: 1rem; */
     justify-content: space-between;
+    padding: 4rem;
     @media screen and (max-width: 767px) {
         padding-left: 34px;
         justify-content: flex-start;
@@ -240,6 +269,21 @@ const MainWrapper = styled.div`
         }
     }
 `
+
+const RightPart = styled.div`
+    position: relative;
+    grid-column: 2;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    overflow-x: hidden;
+`
+
+// const WorksListWrapper = styled.div`
+
+// `
 
 const CountWrapper = styled.div`
     color: #fff;
@@ -291,7 +335,7 @@ const QuotesWrapper = styled.div`
     box-sizing: border-box;
     display: block;
     color: #fff;
-    width: 25%;
+    width: 30%;
     @media screen and (max-width: 767px) {
         display: none;
     }
