@@ -229,6 +229,10 @@ const WorksWrapper = styled.div`
         padding-top: 52px;
         margin-top: unset;
     }
+    @media screen and (max-width: 1000px) {
+        height: unset;
+        min-height: 100vh;
+    }
 `
 
 const MainWrapper = styled.div`
@@ -251,6 +255,10 @@ const MainWrapper = styled.div`
             gap: 0 !important;
         }
     } */
+    @media screen and (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 const LeftPart = styled.div`
@@ -268,6 +276,9 @@ const LeftPart = styled.div`
             gap: 0 !important;
         }
     }
+    @media screen and (max-width: 1000px) {
+        gap: 8rem;
+    }
 `
 
 const RightPart = styled.div`
@@ -279,6 +290,14 @@ const RightPart = styled.div`
     justify-content: flex-start;
     height: 100%;
     overflow-x: hidden;
+    @media screen and (max-width: 1000px) {
+        height: unset;
+        overflow-y: auto;
+        margin: 4rem;
+    }
+    @media screen and (max-width: 767px) {
+        margin: 2rem;
+    }
 `
 
 // const WorksListWrapper = styled.div`

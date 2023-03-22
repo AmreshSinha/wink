@@ -92,4 +92,9 @@ const Card = styled.div`
         align-items: center;
         transition: .3s cubic-bezier(0.25,0.8,0.25,1) 0.15s;
     }
+    @media screen and (max-width: 767px) {
+        h1 {
+            font-size: 3rem;
+        }
+    }
 `
