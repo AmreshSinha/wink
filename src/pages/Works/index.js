@@ -146,7 +146,7 @@ export default function Works() {
         <WorksWrapper>
             <DesktopNav style={navReveal} />
             <MainWrapper>
-                <div style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
+                <div id="MainId" style={{display: "flex", flexDirection: "column", gap: "1rem"}}>
                     <WorksTitleWrapper>
                         {worksTitleWrapperProps((style, item) => (
                             <a.div style={style}>
@@ -231,6 +231,14 @@ const MainWrapper = styled.div`
     flex-direction: column;
     /* gap: 1rem; */
     justify-content: space-between;
+    @media screen and (max-width: 767px) {
+        padding-left: 34px;
+        justify-content: flex-start;
+        gap: 6rem;
+        #MainId {
+            gap: 0 !important;
+        }
+    }
 `
 
 const CountWrapper = styled.div`
@@ -272,6 +280,9 @@ const SearchWrapper = styled.div`
         font-weight: 300;
         letter-spacing: 0;
     }
+    @media screen and (max-width: 767px) {
+        margin-top: -4rem;
+    }
 `
 
 const QuotesWrapper = styled.div`
@@ -281,6 +292,9 @@ const QuotesWrapper = styled.div`
     display: block;
     color: #fff;
     width: 25%;
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
     min-height: 102px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
