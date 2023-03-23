@@ -294,6 +294,7 @@ const RightPart = styled.div`
     position: relative;
     grid-column: 2;
     margin: 0;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
