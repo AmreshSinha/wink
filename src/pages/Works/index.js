@@ -104,6 +104,15 @@ export default function Works() {
         to: { opacity: 1, x: 0, y: 0},
     })
     useChain([navRef, socialIconsRef, trailsRef, worksTitleWrapperPropsRef, dividerLineRef, yearRef], [0, 1, 2, 3, 4, 5], 100)
+
+    const [searchObj, setSearchObj] = useState(winkConfig)
+    const querychange = obj => {
+        if (obj) {
+            setSearchObj(obj)
+        } else {
+            setSearchObj(winkConfig)
+        }
+    }
     return (
         <>
         <Helmet>
@@ -165,7 +174,7 @@ export default function Works() {
                     <SearchWrapper>
                         <h3>FILTER</h3>
                         <label>SEARCH</label>
-                        <Search />
+                        <Search winkconfig={winkConfig} querychange={querychange} />
                     </SearchWrapper>
                     <QuotesWrapper>
                             {quote ? <span>Quote : [<br />&nbsp;&nbsp;&nbsp;&nbsp;{quote.content}<br />&nbsp;&nbsp;&nbsp;&nbsp;~ {quote.author}<br />] ,<br />Reload : [ <a onClick={fetchQuote}>Yes</a> , No ]</span>
@@ -174,7 +183,7 @@ export default function Works() {
                     </QuotesWrapper>
                 </LeftPart>
                 <RightPart>
-                    {winkConfig.map((item, index) => (
+                    {searchObj.map((item, index) => (
                         <WorksCard key={index} item={item} index={index} />
                     ))}
                 </RightPart>

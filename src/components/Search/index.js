@@ -2,11 +2,31 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import searchIcon from "../../images/searchIcon.svg";
 
-export default function Search() {
+export default function Search({ winkconfig, querychange }) {
+    const [query, setQuery] = useState("");
+    const [searchParam] = useState(["title"])
+
+    function search(items) {
+        return items.filter((item) => {
+            return searchParam.some((newItem) => {
+                return (
+                    item[newItem]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(query.toLowerCase()) > -1
+                );
+            });
+        });
+    }
+    
+    useEffect(() => {
+        querychange(search(winkconfig))
+    }, [query])
+    // const resultObj = search("string 1", array);
     return (
         <Wrapper>
             <InputWrapper>
-                <InputBox label="Search" style={{ backgroundImage: `url(${searchIcon})` }} placeholder="Search..." autocomplete="off" />
+                <InputBox label="Search" style={{ backgroundImage: `url(${searchIcon})` }} placeholder="Search..." autocomplete="off" autocorrect="off" spellCheck="false" value={query} onChange={(e) => setQuery(e.target.value)} />
             </InputWrapper>
         </Wrapper>
     )
