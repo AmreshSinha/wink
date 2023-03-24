@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function WorksCard({ item }) {
     return (
-        <CardWrapper>
+        <CardWrapper href={item.link} target="_blank">
             <span></span>
             <Card>
                 <h3>
