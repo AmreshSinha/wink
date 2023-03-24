@@ -1,45 +1,45 @@
 [
     {
-        "id": "testId",
-        "title": "Test Title",
-        "description": "Test Description",
+        "id": "alphaq",
+        "title": "alphaQ",
+        "description": "A Web3 Ad Platform made project as a solution for Consensys' Metamask problem statement in Inter IIT Tech Meet 11.0 (2023)",
         "image": "https://i.imgur.com/1Q3ZQ4r.png",
-        "link": "https://testlink.com",
+        "link": "https://github.com/AmreshSinha/alphaQ",
         "category": "Development",
         "year": 2023,
-        "industry": "Personal Project",
-        "tools": ["React", "Redux", "Node", "Express", "MongoDB", "Mongoose", "Bootstrap", "HTML", "CSS", "JavaScript", "Git", "GitHub", "Heroku", "Netlify"]
+        "industry": "Inter IIT Tech Meet 11.0",
+        "tools": ["Typescript", "Nextjs", "React", "Metamask Snap", "MongoDB"]
     },
     {
-        "id": "testId2",
-        "title": "Test Title 2",
-        "description": "Test Description 2",
+        "id": "solar-flare-detector",
+        "title": "Solar Flare Detector",
+        "description": "ISRO's Web Based Solar Bursts in X-Ray Light Curves Detector project done as a solution for ISRO's (Indian Space Research Organization) problem statement in Inter IIT Tech Meet 10.0 (2022)",
         "image": "https://i.imgur.com/1Q3ZQ4r.png",
-        "link": "https://testlink.com",
+        "link": "https://github.com/search?q=inter-iit-isro+user%3AAmreshSinha&type=Repositories&ref=advsearch&l=&l=",
         "category": "Development",
-        "year": 2023,
-        "industry": "Personal Project",
-        "tools": ["React", "Redux", "Node", "Express", "MongoDB", "Mongoose", "Bootstrap", "HTML", "CSS", "JavaScript", "Git", "GitHub", "Heroku", "Netlify"]
+        "year": 2022,
+        "industry": "Inter IIT Tech Meet 10.0",
+        "tools": ["JavaScript", "Python", "React", "Flask", "Recharts.js"]
     },{
-        "id": "testId",
-        "title": "Test Title",
-        "description": "Test Description",
+        "id": "sshot",
+        "title": "SShot",
+        "description": "An API for capturing web screenshots, supporting multiple parameters for changing the settings of the capture.",
         "image": "https://i.imgur.com/1Q3ZQ4r.png",
-        "link": "https://testlink.com",
+        "link": "https://sshot.prj.fossian.com",
         "category": "Development",
-        "year": 2023,
+        "year": 2022,
         "industry": "Personal Project",
-        "tools": ["React", "Redux", "Node", "Express", "MongoDB", "Mongoose", "Bootstrap", "HTML", "CSS", "JavaScript", "Git", "GitHub", "Heroku", "Netlify"]
+        "tools": ["JavaScript", "Nodejs", "Express", "Puppeteer", "Redis", "Docker"]
     },
     {
-        "id": "testId2",
-        "title": "Test Title 2",
-        "description": "Test Description 2",
+        "id": "spotify-promoCards-api",
+        "title": "Spotify PromoCards API",
+        "description": "An unofficial Spotify PromoCards generator API inspired by the original Spotify's shareable song cards.",
         "image": "https://i.imgur.com/1Q3ZQ4r.png",
-        "link": "https://testlink.com",
+        "link": "https://spotify-cards.prj.fossian.com",
         "category": "Development",
-        "year": 2023,
+        "year": 2021,
         "industry": "Personal Project",
-        "tools": ["React", "Redux", "Node", "Express", "MongoDB", "Mongoose", "Bootstrap", "HTML", "CSS", "JavaScript", "Git", "GitHub", "Heroku", "Netlify"]
+        "tools": ["JavaScript", "Nodejs", "Express", "Spotify Web API", "node-canvas", "Docker"]
     }
 ]

@@ -245,13 +245,15 @@ const WorksWrapper = styled.div`
 `
 
 const MainWrapper = styled.div`
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: 50vw auto;
     grid-template-rows: 1fr;
     overflow: hidden;
-    /* padding: 4rem; */
+    padding: 4rem 0 3rem 4rem;
+    /* padding-bottom: 2rem; */
     /* display: flex; */
     /* flex-direction: column; */
     /* gap: 1rem; */
@@ -276,7 +278,7 @@ const LeftPart = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 4rem;
+    /* padding: 4rem; */
     @media screen and (max-width: 767px) {
         padding-left: 34px;
         justify-content: flex-start;
@@ -294,7 +296,7 @@ const RightPart = styled.div`
     position: relative;
     grid-column: 2;
     margin: 0;
-    margin-top: 4rem;
+    /* margin-top: 4rem; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -504,14 +506,17 @@ const WorksTitle = styled(a.span)`
 
 const FooterWrapper = styled.div`
     position: fixed;
-    bottom: 1rem;
+    bottom: 0;
     right: 1rem;
-    position: fixed;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    height: 100%;
+    /* align-items: center; */
+    width: 100%;
+    /* height: 100%; */
+    div {
+        flex-direction: row;
+    }
 `
 
 const Year = styled(a.span)`
