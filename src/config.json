@@ -1,5 +1,16 @@
 [
     {
+        "id": "paasify",
+        "title": "Paasify (WIP)",
+        "description": "A platform for developers to deploy their apps on the cloud with a single click.",
+        "image": "https://i.imgur.com/1Q3ZQ4r.png",
+        "link": "https://paasify.app",
+        "category": "Development (WIP)",
+        "year": 2023,
+        "industry": "Personal Project (WIP)",
+        "tools": ["JavaScript", "Nodejs", "React", "Express", "MongoDB", "Socket.io", "Docker"]
+    },
+    {
         "id": "alphaq",
         "title": "alphaQ",
         "description": "A Web3 Ad Platform made project as a solution for Consensys' Metamask problem statement in Inter IIT Tech Meet 11.0 (2023)",
