@@ -61,6 +61,7 @@ const CardWrapper = styled.a`
     }
     @media screen and (max-width: 1000px) {
         border: unset;
+        padding: 25px;
         span {
             display: none;
         }
@@ -173,7 +174,7 @@ const Card = styled.div`
     }
     @media screen and (max-width: 767px) {
         h1 {
-            font-size: 3rem;
+            font-size: 40px;
         }
     }
 `
