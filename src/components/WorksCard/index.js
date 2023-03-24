@@ -58,6 +58,17 @@ const CardWrapper = styled.a`
         div > h3 {
             transform: translateX(32px);
         }
+        @media screen and (max-width: 767px) {
+            h3 {
+                transform: unset;
+            }
+            h1 {
+                transform: unset;
+            }
+            div > h3 {
+                transform: unset;
+            }
+        }
     }
     @media screen and (max-width: 1000px) {
         border: unset;
