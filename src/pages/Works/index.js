@@ -226,6 +226,10 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         overflow-x: hidden;
+        overflow-y: hidden;
+        @media screen and (max-width: 1001px) {
+            overflow-y: unset;
+        }
     }
 `
 const WorksWrapper = styled.div`
@@ -252,7 +256,7 @@ const MainWrapper = styled.div`
     grid-template-columns: 50vw auto;
     grid-template-rows: 1fr;
     overflow: hidden;
-    padding: 4rem 0 3rem 4rem;
+    padding-bottom: 3rem;
     /* padding-bottom: 2rem; */
     /* display: flex; */
     /* flex-direction: column; */
@@ -273,11 +277,13 @@ const MainWrapper = styled.div`
 `
 
 const LeftPart = styled.div`
+    box-sizing: border-box;
     width: 100%;
     /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 4rem 0 0 4rem;
     /* padding: 4rem; */
     @media screen and (max-width: 767px) {
         padding-left: 34px;
@@ -293,6 +299,7 @@ const LeftPart = styled.div`
 `
 
 const RightPart = styled.div`
+    box-sizing: border-box;
     position: relative;
     grid-column: 2;
     margin: 0;
@@ -306,6 +313,7 @@ const RightPart = styled.div`
         height: unset;
         overflow-y: auto;
         margin: 4rem;
+        gap: 2rem;
     }
     @media screen and (max-width: 767px) {
         margin: 2rem;
@@ -507,19 +515,25 @@ const WorksTitle = styled(a.span)`
 const FooterWrapper = styled.div`
     position: fixed;
     bottom: 0;
-    right: 1rem;
+    /* right: 1rem; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     /* align-items: center; */
     width: 100%;
     /* height: 100%; */
+    left: 50%;
+    -ms-transform: translate(-50%, -8px);
+    transform: translate(-50%, -8px);
     div {
         flex-direction: row;
     }
 `
 
 const Year = styled(a.span)`
+    position: absolute;
+    right: 0;
+    bottom: 0;
     font-size: 32px;
     font-weight: 700;
     line-height: 75%;

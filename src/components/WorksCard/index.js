@@ -26,6 +26,7 @@ export default function WorksCard({ item }) {
 }
 
 const CardWrapper = styled.a`
+    box-sizing: border-box;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -58,9 +59,53 @@ const CardWrapper = styled.a`
             transform: translateX(32px);
         }
     }
+    @media screen and (max-width: 1000px) {
+        border: unset;
+        span {
+            display: none;
+        }
+        :focus-visible {
+            background: rgb(251, 133, 0);
+        }
+        ::before {
+            content: "";
+            top: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            border-top: 1pt solid  #8f8f90;
+            border-right: 1pt solid #8f8f90;
+            transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        ::after {
+            content: "";
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            border-top: 1pt solid #8f8f90;
+            border-left: 1pt solid #8f8f90;
+            transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        :hover {
+            background: unset;
+            ::before {
+                width: 50px;
+                height: 50px;
+                /* border-width: 5pt; */
+            }
+            ::after {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
 `
 
 const Card = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -91,6 +136,40 @@ const Card = styled.div`
         justify-content: space-between;
         align-items: center;
         transition: .3s cubic-bezier(0.25,0.8,0.25,1) 0.15s;
+    }
+    @media screen and (max-width: 1000px) {
+        ::before {
+            content: "";
+            bottom: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            border-right: 1pt solid  #8f8f90;
+            border-bottom: 1pt solid #8f8f90;
+            transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        ::after {
+            content: "";
+            bottom: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            border-bottom: 1pt solid #8f8f90;
+            border-left: 1pt solid #8f8f90;
+            transition: .35s cubic-bezier(0.25,0.8,0.25,1);
+        }
+        :hover {
+            ::before {
+                width: 50px;
+                height: 50px;
+            }
+            ::after {
+                width: 50px;
+                height: 50px;
+            }
+        }
     }
     @media screen and (max-width: 767px) {
         h1 {
