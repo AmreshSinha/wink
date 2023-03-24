@@ -316,7 +316,7 @@ const RightPart = styled.div`
         gap: 2rem;
     }
     @media screen and (max-width: 767px) {
-        margin: 2rem;
+        margin: 2rem 1rem 0 1rem;
     }
 `
 
