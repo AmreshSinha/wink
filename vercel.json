@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+      {
+        "source": "/stats/js/script.js",
+        "destination": "https://analytics.fossian.com/js/plausible.js"
+      },
+      {
+        "source": "/stats/api/event",
+        "destination": "https://analytics.fossian.com/api/event"
+      }
+    ]
+  }
