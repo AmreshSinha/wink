@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { a } from "@react-spring/web";
 
-export default function WorksCard({ item }) {
+export default function WorksCard({ item, style }) {
     return (
-        <CardWrapper href={item.link} target="_blank">
+        <CardWrapper style={style} href={item.link} target="_blank">
             <span></span>
             <Card>
                 <h3>
@@ -25,7 +26,7 @@ export default function WorksCard({ item }) {
     )
 }
 
-const CardWrapper = styled.a`
+const CardWrapper = styled(a.a)`
     box-sizing: border-box;
     position: relative;
     display: flex;
