@@ -90,6 +90,27 @@ export default function Works() {
         from: { opacity: 0, width: 0},
         to: { opacity: 1, width: 80},
     })
+    const countTrailsRef = useSpringRef()
+    const countTrails = useTrail(1, {
+        ref: countTrailsRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: -20},
+        to: { opacity: 1, x: 0 },
+    })
+    const searchWrapperRef = useSpringRef()
+    const searchWrapperProps = useTransition([1], {
+        ref: searchWrapperRef,
+        from: { opacity: 0, y: 0 },
+        enter: { opacity: 1, y: -10 },
+        leave: { opacity: 1 }
+    })
+    const quotesWrapperRef = useSpringRef()
+    const quotesWrapperProps = useTransition([1], {
+        ref: quotesWrapperRef,
+        from: { opacity: 0, y: 0 },
+        enter: { opacity: 1, y: -10 },
+        leave: { opacity: 1 }
+    })
     const socialIconsRef = useSpringRef();
     const socialIconsAnim = useSpring({
         ref: socialIconsRef,
@@ -103,8 +124,7 @@ export default function Works() {
         from: { opacity: 0, x: 20, y: 200},
         to: { opacity: 1, x: 0, y: 0},
     })
-    useChain([navRef, socialIconsRef, trailsRef, worksTitleWrapperPropsRef, dividerLineRef, yearRef], [0, 1, 2, 3, 4, 5], 100)
-
+    
     const [searchObj, setSearchObj] = useState(winkConfig)
     const querychange = obj => {
         if (obj) {
@@ -113,6 +133,18 @@ export default function Works() {
             setSearchObj(winkConfig)
         }
     }
+    const rightSectionRef = useSpringRef()
+    const [rightAnimStatus, setRightAnimStatus] = useState(true)
+    const rightSectionProps = useTransition(searchObj, rightAnimStatus && {
+        ref: rightSectionRef,
+        config: { mass: 5, tension: 2000, friction: 200 },
+        from: { opacity: 0, x: -40 },
+        enter: { opacity: 1, x: 0 },
+        leave: { opacity: 0, trasnalte3d: "0, 0, 0" },
+        trail: 100,
+        onRest: () => setRightAnimStatus(false)
+    })
+    useChain([navRef, socialIconsRef, trailsRef, worksTitleWrapperPropsRef, dividerLineRef, countTrailsRef, searchWrapperRef, quotesWrapperRef, rightSectionRef, yearRef], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 100)
     return (
         <>
         <Helmet>
@@ -168,23 +200,32 @@ export default function Works() {
                             </a.div>))}
                         </WorksTitleWrapper>
                         <CountWrapper>
-                            <p>{winkConfig.length}/{winkConfig.length}</p>
+                        {countTrails.map(({ height, ...style }, index) => (
+                            <a.p style={style}>{winkConfig.length}/{winkConfig.length}</a.p>
+                        ))}
                         </CountWrapper>
                     </div>
-                    <SearchWrapper>
+                    {searchWrapperProps((style, item) => (
+                    <SearchWrapper style={style}>
                         <h3>FILTER</h3>
                         <label>SEARCH</label>
                         <Search winkconfig={winkConfig} querychange={querychange} />
                     </SearchWrapper>
-                    <QuotesWrapper>
+                    ))}
+                    {quotesWrapperProps((style, item) => (
+                    <QuotesWrapper style={style}>
                             {quote ? <span>Quote : [<br />&nbsp;&nbsp;&nbsp;&nbsp;{quote.content}<br />&nbsp;&nbsp;&nbsp;&nbsp;~ {quote.author}<br />] ,<br />Reload : [ <a onClick={fetchQuote}>Yes</a> , No ]</span>
                                 : <span>Loading...</span>
                             }
                     </QuotesWrapper>
+                    ))}
                 </LeftPart>
                 <RightPart>
-                    {searchObj.map((item, index) => (
-                        <WorksCard key={index} item={item} index={index} />
+                    {/* {searchObj.map((item, index) => (
+                        <WorksCard style={rightCardSpring} key={index} item={item} index={index} />
+                    ))} */}
+                    {rightSectionProps(({ ...style }, item) => (
+                        <WorksCard key={item} item={item} style={(rightAnimStatus ? style : null)} />
                     ))}
                 </RightPart>
             </MainWrapper>
@@ -344,7 +385,7 @@ const CountWrapper = styled.div`
     }
 `
 
-const SearchWrapper = styled.div`
+const SearchWrapper = styled(a.div)`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -368,7 +409,7 @@ const SearchWrapper = styled.div`
     }
 `
 
-const QuotesWrapper = styled.div`
+const QuotesWrapper = styled(a.div)`
     box-sizing: content-box;
     position: relative;
     box-sizing: border-box;
