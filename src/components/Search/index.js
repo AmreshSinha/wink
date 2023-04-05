@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import searchIcon from "../../images/searchIcon.svg";
 
-export default function Search({ winkconfig, querychange }) {
+export default function Search({ winkconfig, querychange, autofocus }) {
     const [query, setQuery] = useState("");
     const [searchParam] = useState(["title"])
-
+    console.log(autofocus)
     function search(items) {
         return items.filter((item) => {
             return searchParam.some((newItem) => {
@@ -26,7 +26,7 @@ export default function Search({ winkconfig, querychange }) {
     return (
         <Wrapper>
             <InputWrapper>
-                <InputBox label="Search" style={{ backgroundImage: `url(${searchIcon})` }} placeholder="Search..." autocomplete="off" autocorrect="off" spellCheck="false" value={query} onChange={(e) => setQuery(e.target.value)} />
+                <InputBox label="Search" style={{ backgroundImage: `url(${searchIcon})` }} placeholder="Search..." autocomplete="off" autocorrect="off" spellCheck="false" value={query} onChange={(e) => setQuery(e.target.value)} autoFocus={autofocus} />
             </InputWrapper>
         </Wrapper>
     )
