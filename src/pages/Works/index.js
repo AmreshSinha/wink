@@ -209,7 +209,7 @@ export default function Works() {
                     <SearchWrapper style={style}>
                         <h3>FILTER</h3>
                         <label>SEARCH</label>
-                        <Search winkconfig={winkConfig} querychange={querychange} />
+                        <Search autofocus={true} winkconfig={winkConfig} querychange={querychange} />
                     </SearchWrapper>
                     ))}
                     {quotesWrapperProps((style, item) => (
