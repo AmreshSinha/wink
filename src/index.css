@@ -49,6 +49,12 @@ table {
 	cursor: none;
 }
 
+@media screen and (max-width: 1000px) {
+	* {
+		cursor: auto;
+	}
+}
+
 body {
   margin: 0;
   font-family: 'League Spartan', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
