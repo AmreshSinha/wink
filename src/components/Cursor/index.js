@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import DescCard from "../DescCard";
 
-export default function Cursor() {
+export default function Cursor({ project }) {
     const delay = 18;
 
     const dot = useRef(null)
     const dotOutline = useRef(null)
+    const card = useRef(null)
 
     const cursorVisible = useRef(true);
     const cursorEnlarged = useRef(false);
@@ -50,9 +52,11 @@ export default function Cursor() {
         if (cursorVisible.current) {
           dot.current.style.opacity = 1;
           dotOutline.current.style.opacity = 1;
+          card.current.style.opacity = 1;
         } else {
           dot.current.style.opacity = 0;
           dotOutline.current.style.opacity = 0;
+          card.current.style.opacity = 0;
         }
     };
     
@@ -60,9 +64,11 @@ export default function Cursor() {
       if (cursorEnlarged.current) {
         dot.current.style.transform = 'translate(-50%, -50%) scale(0.75)';
         dotOutline.current.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        card.current.style.transform = 'translate(-50%, -50%) scale(1.5)';
       } else {
         dot.current.style.transform = 'translate(-50%, -50%) scale(1)';
         dotOutline.current.style.transform = 'translate(-50%, -50%) scale(1)';
+        card.current.style.transform = 'translate(-50%, -50%) scale(1)';
       }
     };
 
@@ -103,14 +109,18 @@ export default function Cursor() {
     
         dotOutline.current.style.top = _y.current + 'px';
         dotOutline.current.style.left = _x.current + 'px';
+        card.current.style.top = _y.current + 'px';
+        card.current.style.left = _x.current + 'px';
     
         requestRef.current = requestAnimationFrame(animateDotOutline);
     };
 
     return (
         <>
-            <CursorDotOutline ref={dotOutline}></CursorDotOutline>
-            <CursorDot ref={dot}></CursorDot>
+            <CursorDotOutline ref={dotOutline} />
+            <CursorDot ref={dot} />
+            <DescCard cardRef={card} project={project} />
+            {/* <CursorDotOutline ref={card} /> */}
         </>
     )
 }

@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import { a } from "@react-spring/web";
 
-export default function WorksCard({ item, style }) {
+export default function WorksCard({ item, style, setProject, setShowCard }) {
     return (
-        <CardWrapper style={style} href={item.link} target="_blank">
+        <CardWrapper
+          style={style}
+          href={item.link}
+          target="_blank"
+          onMouseOver={() => {setProject(item);/*setShowCard(true);*/}}
+          onMouseOut={() => {setProject(null);/*setShowCard(false);*/}}
+        >
             <span></span>
             <Card>
                 <h3>

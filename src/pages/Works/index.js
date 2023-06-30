@@ -24,6 +24,8 @@ export default function Works() {
     const [windowSize, setWindowSize] = useState(getWindowSize())
     const [mobile, setMobile] = useState(false)
     const [tablet, setTablet] = useState(false)
+    const [project, setProject] = useState(null)
+    const [showCard, setShowCard] = useState(false)
 
     useEffect(() => {
         function handleWindowResize() {
@@ -225,7 +227,15 @@ export default function Works() {
                         <WorksCard style={rightCardSpring} key={index} item={item} index={index} />
                     ))} */}
                     {rightSectionProps(({ ...style }, item) => (
-                        <WorksCard key={item} item={item} style={(rightAnimStatus ? style : null)} />
+                        <WorksCard
+                        //   onMouseOver={() => {setProject(item);setShowCard(true);}}
+                        //   onMouseOut={() => {setProject(null);setShowCard(false);}}
+                          setProject={setProject}
+                          setShowCard={setShowCard}
+                          key={item}
+                          item={item}
+                          style={(rightAnimStatus ? style : null)}
+                        />
                     ))}
                 </RightPart>
             </MainWrapper>
@@ -233,7 +243,7 @@ export default function Works() {
                 {!mobile ? <><SocialIcons style={socialIconsAnim} pagetype="Works" />
                 <Year style={yearAnim}>20<br/>23</Year></> : null}
             </FooterWrapper>
-            {!tablet ? <Cursor /> : null}
+            {!tablet ? <Cursor project={project} showCard={showCard} /> : null}
         </WorksWrapper>
         </>
     )
