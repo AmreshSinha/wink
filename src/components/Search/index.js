@@ -5,7 +5,7 @@ import searchIcon from "../../images/searchIcon.svg";
 export default function Search({ winkconfig, querychange, autofocus }) {
     const [query, setQuery] = useState("");
     const [searchParam] = useState(["title"])
-    console.log(autofocus)
+    // console.log(autofocus)
     function search(items) {
         return items.filter((item) => {
             return searchParam.some((newItem) => {
