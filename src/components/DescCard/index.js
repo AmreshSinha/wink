@@ -75,6 +75,8 @@ const CardWrapper = styled.div`
   div > img {
     width: 100%;
     height: auto;
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
   }
   div > div > p {
     font-size: 0.8rem;
@@ -84,7 +86,7 @@ const CardWrapper = styled.div`
 const ImageWrapper = styled.div``;
 
 const DetailsWrapper = styled.div`
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0 1rem 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
