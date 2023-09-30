@@ -11,9 +11,20 @@
         "tools": ["JavaScript", "Nodejs", "React", "Express", "MongoDB", "Socket.io", "Docker"]
     },
     {
+        "id": "shopai",
+        "title": "ShopAI",
+        "description": "Implementation of the solution of the problem statement of the hackathon 'Flipkart Grid 5.0', ShopAI is a fashion shopping AI Assistant which converses and gives outfit recommendations",
+        "image": "https://raw.githubusercontent.com/AmreshSinha/ShopAI/main/SearchPreview.png",
+        "link": "https://github.com/AmreshSinha/ShopAI",
+        "category": "Development",
+        "year": 2023,
+        "industry": "Flipkart Grid 5.0",
+        "tools": ["Typescript", "Nodejs", "React", "FastAPI", "Selenium", "Google Cloud Platform", "GPT-4"]
+    },
+    {
         "id": "alphaq",
         "title": "alphaQ",
-        "description": "A Web3 Ad Platform made project as a solution for Consensys' Metamask problem statement in Inter IIT Tech Meet 11.0 (2023)",
+        "description": "A Web3 decentralized Ad Platform made as a solution for Consensys' Metamask problem statement in Inter IIT Tech Meet 11.0 (2023)",
         "image": "https://i.imgur.com/8KZz38J.jpeg",
         "link": "https://github.com/AmreshSinha/alphaQ",
         "category": "Development",
