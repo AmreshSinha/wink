@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import DesktopNav from "../../components/DesktopNav"
 import favicon from '../../images/favicon.ico'
