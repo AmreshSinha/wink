@@ -9,7 +9,7 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=web"
+      - "traefik.docker.network=proxy"
       - "traefik.http.routers.wink-secure.entrypoints=websecure"
       - "traefik.http.routers.wink-secure.rule=Host(`amresh.x-axis.app`)"
       - "traefik.http.routers.wink-secure.service=wink-service"
