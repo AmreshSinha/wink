@@ -6,17 +6,17 @@ export default function SocialIcons({ email, color, pagetype, style }) {
     return (
         <SocialIconsContainer style={style} pagetype={pagetype}>
             {email ? 
-            <a href={`mailto:${email}`}>
+            <a href={`mailto:${email}`} aria-label="Email">
                 <FiAtSign color={color ? `${color}` : null} />
             </a> : null
             }
-            <a href="https://github.com/AmreshSinha" target="_blank" rel="noreferrer">
+            <a href="https://github.com/AmreshSinha" target="_blank" rel="noreferrer" aria-label="Github">
                 <FiGithub color={color ? `${color}` : null} />
             </a>
-            <a href="https://twitter.com/aps_codes" target="_blank" rel="noreferrer">
+            <a href="https://twitter.com/aps_codes" target="_blank" rel="noreferrer" aria-label="Twitter">
                 <FiTwitter color={color ? `${color}` : null} />
             </a>
-            <a href="https://www.linkedin.com/in/amresh-sinha/" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/amresh-sinha/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <FiLinkedin color={color ? `${color}` : null} />
             </a>
         </SocialIconsContainer>
