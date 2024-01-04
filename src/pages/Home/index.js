@@ -197,7 +197,7 @@ export default function Home() {
         <Helmet>
             <meta charSet="utf-8" />
             <title>Amresh Sinha</title>
-            <link rel="canonical" href="/" />
+            <link rel="canonical" href={window.location.href} />
             <link rel="icon" href={favicon} />
             <link rel="apple-touch-icon" sizes="180x180" href={appleIcon} />
             <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
