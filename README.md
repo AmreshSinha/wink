@@ -35,9 +35,9 @@ You are mostly done. Choose the platform for deploying:
 
 ### Deploying on your own Server (For **Hardcore Privacy Focused User**)
 
-This is not covering any of the DNS stuff. I have already provided provided minimal config files for deploying manually on server. (Docker configs)
+This is not covering any of the DNS stuff. I have already provided minimal config files for deploying manually on the server. (Docker configs)
 
-Do note that the docker pathway assumes that you have **Traefik** running. If you want to use any other reverse-proxy you will have to edit the config files on your own. Do create a PR if you add support for any other reverse-proxy service.
+Do note that the docker pathway assumes that you have **Traefik** running. Change the docker network name `proxy` in `docker-compose.yml` to the network name you are using for your Traefik instance. If you want to use any other reverse-proxy you will have to edit the config files on your own. Do create a PR if you add support for any other reverse-proxy service.
 
 <h2> Development (*ˊᗜˋ*)/ᵗᑋᵃᐢᵏ ᵞᵒᵘ*</h2>
 
