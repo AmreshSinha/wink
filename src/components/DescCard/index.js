@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 export default function DescCard({ project, cardRef }) {
-  console.log("DescCard", cardRef);
+  // console.log("DescCard", cardRef);
   const [imgLoading, setImgLoading] = useState(true);
   const [img, setImg] = useState(null);
 
