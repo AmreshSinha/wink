@@ -241,7 +241,7 @@ export default function Works() {
             </MainWrapper>
             <FooterWrapper>
                 {!mobile ? <><SocialIcons style={socialIconsAnim} pagetype="Works" />
-                <Year style={yearAnim}>20<br/>23</Year></> : null}
+                <Year style={yearAnim}>20<br/>24</Year></> : null}
             </FooterWrapper>
             {!tablet ? <Cursor project={project} showCard={showCard} /> : null}
         </WorksWrapper>
