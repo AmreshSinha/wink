@@ -250,7 +250,7 @@ export default function Home() {
             <FooterWrapper>
                 {!mobile ? <SocialIcons style={socialIconsAnim} /> : <SocialIcons style={socialIconsAnim} email="amresh@duck.com" />}
                 {/* email={'amresh@duck.com'} */}
-                <Year style={socialIconsAnim}>20<br/>23</Year>
+                <Year style={socialIconsAnim}>20<br/>24</Year>
             </FooterWrapper>
             {!tablet ? <Cursor /> : null}
         </HeroWrapper>
