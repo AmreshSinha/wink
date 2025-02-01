@@ -22,10 +22,12 @@ function getWindowSize() {
 
 export default function Home() {
     // Moving Background WIP
-    const movingBackground = useRef()
-    const [windowSize, setWindowSize] = useState(getWindowSize())
-    const [mobile, setMobile] = useState(false)
-    const [tablet, setTablet] = useState(false)
+    const movingBackground = useRef();
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+    const [mobile, setMobile] = useState(false);
+    const [tablet, setTablet] = useState(false);
+    // Current Year
+    const currentYear = new Date().getFullYear().toString();
     useEffect(() => {
         function handleWindowResize() {
             setWindowSize(getWindowSize());
@@ -250,7 +252,10 @@ export default function Home() {
             <FooterWrapper>
                 {!mobile ? <SocialIcons style={socialIconsAnim} /> : <SocialIcons style={socialIconsAnim} email="amresh@duck.com" />}
                 {/* email={'amresh@duck.com'} */}
-                <Year style={socialIconsAnim}>20<br/>24</Year>
+                <Year style={socialIconsAnim}>
+                    {currentYear.slice(0, 2)}<br/>
+                    {currentYear.slice(2, 4)}
+                </Year>
             </FooterWrapper>
             {!tablet ? <Cursor /> : null}
         </HeroWrapper>
