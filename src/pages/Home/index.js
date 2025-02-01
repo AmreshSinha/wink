@@ -70,7 +70,7 @@ export default function Home() {
         var temp = 0;
         const stringColors = ['#47FFE9', '#00FFAB', '#F7EC09', '#F9D371']
         const typed = new Typed(el.current, {
-            strings: ['developer', 'open sourcer', 'fullstack eng.', 'student'],
+            strings: ['developer', 'open sourcer', 'fullstack eng.'],
             shuffle: false,
             startDelay: 500,
             typeSpeed: 60,
