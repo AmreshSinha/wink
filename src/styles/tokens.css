@@ -1,0 +1,43 @@
+/* DESIGN TOKENS: the names are the engine contract; the values are this site's system. */
+:root {
+  /* Color by role */
+  --c-bg: #0e0f12;
+  --c-fg: #ecebe6;
+  --c-muted: #9a9ca3;
+  --c-line: rgb(236 235 230 / 0.14);
+  --c-accent: #f0ad1f;
+  --c-curtain: var(--c-accent);
+
+  /* Type: Archivo (width axis) for display and text, JetBrains Mono for routes and meta */
+  --f-display: var(--font-archivo), system-ui, sans-serif;
+  --f-body: var(--font-archivo), system-ui, sans-serif;
+  --f-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Fluid scale: big jumps between display and text */
+  --t-mega: clamp(2.8rem, 17cqi, 11rem); /* inside a container */
+  --t-xl: clamp(2.4rem, 1.2rem + 4.6vw, 5.6rem);
+  --t-l: clamp(1.6rem, 1.2rem + 1.7vw, 2.75rem);
+  --t-m: clamp(1.2rem, 1.05rem + 0.55vw, 1.55rem);
+  --t-body: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+  --t-s: 0.875rem;
+  --t-xs: 0.78rem;
+
+  /* Space */
+  --u: clamp(0.5rem, 0.35rem + 0.6vw, 1rem);
+  --gutter: clamp(1rem, 0.6rem + 1.6vw, 2.5rem);
+  --cols: 12;
+  --hdr: 3.75rem;
+
+  /* Shape: no radius; only LEDs are round */
+  --radius: 0px;
+
+  /* Motion */
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layers */
+  --z-content: 1;
+  --z-preview: 5;
+  --z-header: 50;
+  --z-curtain: 90;
+  --z-loader: 100;
+}

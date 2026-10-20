@@ -1,0 +1,81 @@
+/* ENGINE + FOUNDATION. The project look lives in tokens and component styles. */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  background: var(--c-bg);
+  color: var(--c-fg);
+}
+body {
+  min-height: 100dvh;
+  font-family: var(--f-body);
+  font-size: var(--t-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  overflow-x: clip;
+}
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+img { height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-weight: inherit; font-size: inherit; text-wrap: balance; }
+p { text-wrap: pretty; }
+::selection { background: var(--c-fg); color: var(--c-bg); }
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--c-fg); outline-offset: 3px; border-radius: 2px; }
+#main:focus { outline: none; }
+.skip-link {
+  position: fixed; left: var(--gutter); top: var(--gutter); z-index: calc(var(--z-loader) + 1);
+  padding: 0.6em 1em; background: var(--c-fg); color: var(--c-bg); font-family: var(--f-mono); font-size: var(--t-s);
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+#main, [data-layer='content'] { position: relative; z-index: var(--z-content); }
+
+/* Hidden-until-revealed (only when motion is allowed and JS runs) */
+.motion [data-split], .motion [data-reveal] { visibility: hidden; }
+.split-line { padding-bottom: 0.08em; margin-bottom: -0.08em; }
+[data-split] > *, [data-split] > * > * { text-indent: 0; }
+[data-split] > :first-child, [data-split] > :first-child > :first-child { text-indent: inherit; }
+
+/* Curtain: an ink panel that sweeps left to right, carrying the request label */
+#curtain { position: fixed; inset: 0; z-index: var(--z-curtain); pointer-events: none; visibility: hidden; overflow: hidden; }
+.curtain__panel { position: absolute; inset: 0; background: var(--c-curtain); display: grid; place-items: center; }
+.curtain__label { color: var(--c-bg); font-family: var(--f-mono); font-size: var(--t-m); letter-spacing: 0.04em; font-weight: 500; }
+#net { position: fixed; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
+footer { position: relative; z-index: var(--z-content); }
+
+/* Loader: the ground, the name where the header will put it, the probe line at the bottom */
+#loader {
+  position: fixed; inset: 0; z-index: var(--z-loader);
+  display: grid; grid-template-rows: 1fr auto auto; padding: var(--gutter);
+  background: var(--c-bg); color: var(--c-fg);
+  clip-path: inset(0% 0% 0% 0%);
+}
+.loader__name { position: absolute; left: var(--gutter); top: 0; height: var(--hdr); display: inline-flex; align-items: center; gap: 0.6em; font-family: var(--f-mono); font-size: var(--t-s); letter-spacing: 0.02em; }
+.loader__name .led { background: var(--c-fg); }
+.loader__inner { grid-row: 2; display: flex; justify-content: space-between; align-items: end; overflow: hidden; font-family: var(--f-mono); font-size: var(--t-s); }
+.loader__count { font-variant-numeric: tabular-nums; }
+.loader__bar { grid-row: 3; height: 1px; margin-top: calc(var(--u) * 1.5); background: currentColor; transform: scaleX(0); transform-origin: left; }
+html:not(.js) #loader, html.no-loader #loader, html.is-loaded #loader, #loader[hidden] { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
